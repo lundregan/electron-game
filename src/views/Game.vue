@@ -23,11 +23,11 @@
 }
 
 .tile-active {
-  background: green;
+  background: cyan;
 }
 
 .tile-inactive {
-  background: red;
+  background: lightgrey;
 }
 </style>
 
@@ -46,7 +46,6 @@ class Tile {
 export default {
   name: 'Home',
   components: {
-
   },
   data () {
     return {
