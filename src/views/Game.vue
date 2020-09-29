@@ -7,12 +7,13 @@
         <div class="column">
         <div class="gtiles" style='display: flex; flex-direction: column;'>
           <div class="rows" v-for='x in tileGrid.length' :key='x.id' style='display: flex;'>
-            <div 
-              class="gtile"
+            <GameTile 
               v-for='y in tileGrid.length'
-              :key='y.id' @click='test(x, y)'
-              :class='{"tile-active" : tileGrid[x-1][y-1].active, "tile-inactive" : !tileGrid[x-1][y-1].active}'
-            ></div>
+              :key='y.id'
+              :tileX='x'
+              :tileY='y'
+              :isActive='tileGrid[x-1][y-1].active'
+            />
           </div>
         </div>
         </div>
@@ -21,23 +22,9 @@
   </section>
 </template>
 
-<style lang="scss" scoped>
-.gtile {
-  padding: 60px;
-
-  margin: 1px;
-}
-
-.tile-active {
-  background: cyan;
-}
-
-.tile-inactive {
-  background: lightgrey;
-}
-</style>
-
 <script>
+import GameTile from '../components/GameTile'
+
 class Tile {
   constructor(type, active){
     this.type = type;
@@ -52,6 +39,7 @@ class Tile {
 export default {
   name: 'Home',
   components: {
+    GameTile
   },
   mounted () {
     const generatedTileGrid = [];
@@ -85,3 +73,8 @@ export default {
   }
 }
 </script>
+
+
+<style lang="scss" scoped>
+
+</style>
