@@ -2,10 +2,17 @@
   <div id="app">
     <b-navbar>
         <template slot="end">
+          <router-link to="/">
+              <b-icon
+                  icon="menu"
+                  size="is-large"
+                  style='margin: 8px;'
+              />
+            </router-link>
             <router-link to="settings">
               <b-icon
                   icon="cog"
-                  size="is-medium"
+                  size="is-large"
                   style='margin: 8px;'
               />
             </router-link>
@@ -22,7 +29,13 @@
 <style lang="scss">
 @import 'https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css';
 
+body {
+  height: 100vh;
+}
+
 #app {
+  height: 100%;
+
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
