@@ -1,6 +1,25 @@
 <template>
   <section class="game container">
-    <h1>Playing Game</h1>
+    <div class="heading">
+      <p class='title' v-if='playingGame'>Playing Game</p>
+      <p class='title' v-else>Editing Game</p>
+    </div>
+    <b-button @click='changeMode()'>
+      <span v-if='playingGame'>Edit Game</span>
+      <span v-else>Play Game</span>
+    </b-button>
+
+    <b-field label="Simple" v-if='!playingGame' >
+      <b-select placeholder="Select a name" v-model='selectedTileType'>
+          <option v-for="tileType in tileTypes"
+              :value="tileType"
+              :key="tileType.id"
+              placeholder='none-selected'
+              >
+              {{ tileType }}
+          </option>
+      </b-select>
+    </b-field>
 
     <div class="columns">
         <div class="column"></div>
@@ -11,8 +30,10 @@
               v-for='y in tileGrid.length'
               :key='y.id'
               :class='{"tile-active" : tileGrid[x-1][y-1].active , "tile-inactive" : !tileGrid[x-1][y-1].active}'
-              @click='tileGrid[x-1][y-1].active = !tileGrid[x-1][y-1].active'
-            />
+              @click='tileClicked(x-1, y-1)'
+            >
+            <span v-if='!playingGame'>{{tileGrid[x-1][y-1].type}}</span>
+            </div>
           </div>
         </div>
         </div>
@@ -58,13 +79,35 @@ export default {
   },
   data () {
     return {
+      playingGame: true,
       tileGridSize: 10,
-      tileGrid: []
+      tileGrid: [].length,
+      selectedTileType: 'none-selected',
+      tileTypes: [
+        'default',
+        'toggle-up',
+        'toggle-down',
+        'toggle-right',
+        'toggle-left'
+      ]
     }
   },
   methods: {
     test: function (n, t) {
-      this.tileGrid[n - 1][t - 1].click();
+      this.tileGrid[n - 1][t - 1].click()
+      console.log(this.selectedTileType)
+    },
+    changeMode: function () {
+      this.playingGame = !this.playingGame
+    },
+    tileClicked: function (x, y) {
+      if(this.playingGame){
+        this.tileGrid[x][y].active = !this.tileGrid[x][y].active 
+      }else{
+        console.log(`Before: ${this.tileGrid[x][y].type}`)
+        this.tileGrid[x][y].type = this.selectedTileType
+        console.log(`After: ${this.tileGrid[x][y].type}`)
+      }
     }
   }
 }
