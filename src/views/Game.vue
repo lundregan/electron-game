@@ -44,13 +44,21 @@
 </template>
 
 <script>
-
 class Tile {
   constructor(type, active, x, y){
     this.type = type;
     this.active = active;
     this.x = x,
     this.y = y
+  }
+  getType(){
+    return this.type
+  }
+  setActive(active){
+    this.active = active
+  }
+  toggleActive(){
+    this.active = !this.active
   }
   click() {
     console.log(this.type)
@@ -86,6 +94,30 @@ class TileBoard {
 
     this.board = generatedTileGrid;
   }
+  toggleTile(x, y) {
+    const tile = this.board[x][y]
+    const tileType = tile.getType()
+    
+    switch(tileType){
+      case 'toggle-up':
+        this.toggleTile(x-1, y)
+        break
+      case 'toggle-down':
+        this.toggleTile(x+1, y)
+        break
+      case 'toggle-right':
+        this.toggleTile(x, y+1)
+        break
+      case 'toggle-left':
+        this.toggleTile(x, y-1)
+        break
+      default:
+        tile.toggleActive
+        break
+    }
+
+    tile.toggleActive(true)
+  }
 }
 
 export default {
@@ -119,7 +151,8 @@ export default {
     },
     tileClicked: function (x, y) {
       if(this.playingGame){
-        this.tileBoard.board[x][y].click()
+        //this.tileBoard.board[x][y].click()
+        this.tileBoard.toggleTile(x, y)
       }else{
         console.log(`Before: ${this.tileBoard.board[x][y].type}`)
         this.tileBoard.board[x][y].type = this.selectedTileType
