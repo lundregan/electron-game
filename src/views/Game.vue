@@ -32,6 +32,10 @@
               :class='{"tile-active" : tileBoard.board[x-1][y-1].active , "tile-inactive" : !tileBoard.board[x-1][y-1].active}'
               @click='tileClicked(x-1, y-1)'
             >
+            <!-- <b-icon icon=''></b-icon> -->
+            <span v-if='tileBoard.board[x-1][y-1]'>
+              <b-icon :icon='typeIcons[tileBoard.board[x-1][y-1].type]'></b-icon>
+            </span>
             <span v-if='!playingGame'>{{tileBoard.board[x-1][y-1].type}}</span>
             </div>
           </div>
@@ -95,28 +99,42 @@ class TileBoard {
     this.board = generatedTileGrid;
   }
   toggleTile(x, y) {
-    const tile = this.board[x][y]
-    const tileType = tile.getType()
-    
-    switch(tileType){
-      case 'toggle-up':
-        this.toggleTile(x-1, y)
-        break
-      case 'toggle-down':
-        this.toggleTile(x+1, y)
-        break
-      case 'toggle-right':
-        this.toggleTile(x, y+1)
-        break
-      case 'toggle-left':
-        this.toggleTile(x, y-1)
-        break
-      default:
-        tile.toggleActive
-        break
+    if(!this.outOfBounds(x, y)){
+      const tile = this.board[x][y]
+      const tileType = tile.getType()
+      
+      switch(tileType){
+        case 'toggle-up':
+          this.toggleTile(x-1, y)
+          break
+        case 'toggle-down':
+          this.toggleTile(x+1, y)
+          break
+        case 'toggle-right':
+          this.toggleTile(x, y+1)
+          break
+        case 'toggle-left':
+          this.toggleTile(x, y-1)
+          break
+        default:
+          tile.toggleActive
+          break
+      }
+
+      tile.toggleActive(true)
+    }
+  }
+  outOfBounds(x, y){
+    if(
+      x < 0 ||
+      y < 0 ||
+      x > this.size ||
+      y > this.size
+    ){
+      return true
     }
 
-    tile.toggleActive(true)
+    return false
   }
 }
 
@@ -138,7 +156,14 @@ export default {
         'toggle-down',
         'toggle-right',
         'toggle-left'
-      ]
+      ],
+      typeIcons: {
+        'default': 'none',
+        'toggle-up': 'arrow-up-thick',
+        'toggle-right': 'arrow-right-thick',
+        'toggle-down': 'arrow-down-thick',
+        'toggle-left': 'arrow-left-thick'
+      }
     }
   },
   methods: {
