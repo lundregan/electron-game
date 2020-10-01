@@ -25,14 +25,14 @@
         <div class="column"></div>
         <div class="column">
         <div class="gtiles" style='display: flex; flex-direction: column;'>
-          <div class="rows" v-for='x in tileGrid.length' :key='x.id' style='display: flex;'>
+          <div class="rows" v-for='x in tileBoard.size' :key='x.id' style='display: flex;'>
             <div class='game-tile'
-              v-for='y in tileGrid.length'
+              v-for='y in tileBoard.size'
               :key='y.id'
-              :class='{"tile-active" : tileGrid[x-1][y-1].active , "tile-inactive" : !tileGrid[x-1][y-1].active}'
+              :class='{"tile-active" : tileBoard.board[x-1][y-1].active , "tile-inactive" : !tileBoard.board[x-1][y-1].active}'
               @click='tileClicked(x-1, y-1)'
             >
-            <span v-if='!playingGame'>{{tileGrid[x-1][y-1].type}}</span>
+            <span v-if='!playingGame'>{{tileBoard.board[x-1][y-1].type}}</span>
             </div>
           </div>
         </div>
@@ -46,13 +46,45 @@
 <script>
 
 class Tile {
-  constructor(type, active){
+  constructor(type, active, x, y){
     this.type = type;
     this.active = active;
+    this.x = x,
+    this.y = y
   }
   click() {
-    this.active = !this.active;
     console.log(this.type)
+    console.log(`${this.x} , ${this.y}`)
+
+    switch(this.type){
+      default:
+        this.active = !this.active
+    }
+  }
+}
+
+class TileBoard {
+  constructor(size){
+    this.size = size
+    this.board = []
+    this.generateBoard()
+  }
+  generateBoard() {
+    const generatedTileGrid = [];
+
+    for(let i = 0; i < this.size; i++){
+      const columnArray = [];
+
+      for(let j = 0; j < this.size; j++){
+        columnArray.push(
+          new Tile('default', false, i, j)
+        );
+      }
+
+      generatedTileGrid.push(columnArray);
+    }
+
+    this.board = generatedTileGrid;
   }
 }
 
@@ -60,28 +92,13 @@ export default {
   name: 'Home',
   components: {
   },
-  mounted () {
-    const generatedTileGrid = [];
-
-    for(let i = 0; i < this.tileGridSize; i++){
-      const columnArray = [];
-
-      for(let j = 0; j < this.tileGridSize; j++){
-        columnArray.push(
-          new Tile('default', false)
-        );
-      }
-
-      generatedTileGrid.push(columnArray);
-    }
-
-    this.tileGrid = generatedTileGrid;
-  },
+  // mounted () {
+    
+  // },
   data () {
     return {
+      tileBoard: new TileBoard(10),
       playingGame: true,
-      tileGridSize: 10,
-      tileGrid: [].length,
       selectedTileType: 'none-selected',
       tileTypes: [
         'default',
@@ -102,11 +119,11 @@ export default {
     },
     tileClicked: function (x, y) {
       if(this.playingGame){
-        this.tileGrid[x][y].active = !this.tileGrid[x][y].active 
+        this.tileBoard.board[x][y].click()
       }else{
-        console.log(`Before: ${this.tileGrid[x][y].type}`)
-        this.tileGrid[x][y].type = this.selectedTileType
-        console.log(`After: ${this.tileGrid[x][y].type}`)
+        console.log(`Before: ${this.tileBoard.board[x][y].type}`)
+        this.tileBoard.board[x][y].type = this.selectedTileType
+        console.log(`After: ${this.tileBoard.board[x][y].type}`)
       }
     }
   }
