@@ -52,7 +52,8 @@ export default {
             'toggle-up',
             'toggle-down',
             'toggle-right',
-            'toggle-left'
+            'toggle-left',
+            'disabled'
         ]
     }
   },

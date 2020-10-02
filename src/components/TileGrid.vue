@@ -5,7 +5,11 @@
             <div class='game-tile'
                 v-for='y in tileBoard.size'
                 :key='y.id'
-                :class='{"tile-active" : tileBoard.board[x-1][y-1].active , "tile-inactive" : !tileBoard.board[x-1][y-1].active}'
+                :class='{
+                    "tile-active" : tileBoard.board[x-1][y-1].active ,
+                    "tile-inactive" : !tileBoard.board[x-1][y-1].active,
+                    "tile-disabled" : tileBoard.board[x-1][y-1].type === "disabled"
+                }'
                 @click='tileClicked(x-1, y-1)'
             >
                 <!-- <b-icon icon=''></b-icon> -->
@@ -32,13 +36,7 @@ data () {
     return {
       tileBoard: new TileBoard(10),
       //selectedTileType: 'none-selected',
-      tileTypes: [
-        'default',
-        'toggle-up',
-        'toggle-down',
-        'toggle-right',
-        'toggle-left'
-      ],
+      
       typeIcons: {
         'default': 'none',
         'toggle-up': 'arrow-up-thick',
@@ -83,5 +81,9 @@ data () {
 
 .tile-inactive {
   background: lightgrey;
+}
+
+.tile-disabled {
+    background: black;
 }
 </style>

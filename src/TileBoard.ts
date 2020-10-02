@@ -29,27 +29,31 @@ export class TileBoard {
     toggleTile(x: number, y: number) {
         if(!this.outOfBounds(x, y)){
             const tile = this.board[x][y]
-            const tileType = tile.getType()
-            
-            switch(tileType){
-            case 'toggle-up':
-                this.toggleTile(x-1, y)
-                break
-            case 'toggle-down':
-                this.toggleTile(x+1, y)
-                break
-            case 'toggle-right':
-                this.toggleTile(x, y+1)
-                break
-            case 'toggle-left':
-                this.toggleTile(x, y-1)
-                break
-            default:
-                tile.toggleActive()
-                break
-            }
 
-            tile.toggleActive
+            if(tile.type != 'disabled'){
+                const tileType = tile.getType()
+                
+                switch(tileType){
+                case 'toggle-up':
+
+                    this.toggleTile(x-1, y)
+                    break
+                case 'toggle-down':
+                    this.toggleTile(x+1, y)
+                    break
+                case 'toggle-right':
+                    this.toggleTile(x, y+1)
+                    break
+                case 'toggle-left':
+                    this.toggleTile(x, y-1)
+                    break
+                default:
+                    tile.toggleActive()
+                    break
+                }
+
+                tile.toggleActive()
+            }
         }
     }
     outOfBounds(x: number, y: number){
