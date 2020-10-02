@@ -1,21 +1,29 @@
 <template>
 <section class="editor container">
     <p class='title'>Editing Game</p>
-
-    <b-button 
-        v-for='tileType in tileTypes'
-        :key='tileType.id'
-        :class='{"button-active" : selectedTileType == tileType}'
-        @click='selectedTileType = tileType'
-    >
-        {{tileType}}
-    </b-button>
+    
+    
     
     <div class="columns">
-        <div class="column"></div>
+        <div class="column">
+            <b-button class='is-primary mb-6' @click='playing = !playing' style='min-width: 100%'>
+                <p v-if='playing'>Edit Game</p>
+                <p v-else>Play Game</p>
+            </b-button>
+            <b-button 
+                v-for='tileType in tileTypes'
+                :key='tileType.id'
+                class='px-4 mb-4'
+                :class='{"button-active" : selectedTileType == tileType}'
+                style='min-width: 100%'
+                @click='selectedTileType = tileType'
+            >
+                {{tileType}}
+            </b-button>
+        </div>
         <div class="column">
           <TileGrid
-            :playingGame=false
+            :playingGame='playing'
             :selectedTileType='selectedTileType'
           ></TileGrid>
         </div>
@@ -37,6 +45,7 @@ export default {
   // },
   data () {
     return {
+        playing: false,
         selectedTileType: 'default',
         tileTypes: [
             'default',
