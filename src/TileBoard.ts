@@ -35,24 +35,25 @@ export class TileBoard {
                 
                 switch(tileType){
                 case 'toggle-up':
-
+                    tile.toggleActive()
                     this.toggleTile(x-1, y)
                     break
                 case 'toggle-down':
+                    tile.toggleActive()
                     this.toggleTile(x+1, y)
                     break
                 case 'toggle-right':
+                    tile.toggleActive()
                     this.toggleTile(x, y+1)
                     break
                 case 'toggle-left':
+                    tile.toggleActive()
                     this.toggleTile(x, y-1)
                     break
                 default:
                     tile.toggleActive()
                     break
-                }
-
-                tile.toggleActive()
+                }   
             }
         }
     }
