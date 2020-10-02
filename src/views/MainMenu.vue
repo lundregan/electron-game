@@ -12,7 +12,9 @@
                 <b-button class='menu-button is-primary mx-4' disabled>Levels</b-button>
             </b-field>
             <b-field>
-                <b-button class='menu-button is-primary mx-4' disabled>Editor</b-button>
+                <router-link to='Editor'>
+                    <b-button class='menu-button is-primary mx-4'>Editor</b-button>
+                </router-link>
             </b-field>
         </div>
     </div>

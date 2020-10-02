@@ -6,7 +6,7 @@ export class TileBoard {
 
     constructor(size: number){
       this.size = size
-      this.board = []
+      this.board = [[new Tile('default', true, 0, 0)]]
       this.generateBoard()
     }
     generateBoard() {
@@ -45,7 +45,7 @@ export class TileBoard {
                 this.toggleTile(x, y-1)
                 break
             default:
-                tile.toggleActive
+                tile.toggleActive()
                 break
             }
 
