@@ -27,13 +27,17 @@
             :selectedTileType='selectedTileType'
           ></TileGrid>
         </div>
-        <div class="column"></div>
+        <div class="column">
+          <b-button
+            @click='copyLevelDataToClipboard()'
+          >Copy Level Data to Clipboard</b-button>
+        </div>
     </div>
   </section>
 </template>
 
 <script>
-import TileGrid from '../components/TileGrid' 
+import TileGrid from '../components/TileGrid'
 
 export default {
   name: 'Home',
@@ -54,11 +58,20 @@ export default {
             'toggle-right',
             'toggle-left',
             'disabled'
-        ]
+        ],
+        levelData: 'hello everybody!'
     }
   },
   methods: {
-    
+    copyLevelDataToClipboard: function () {
+      this.$copyText(this.getLevelData()).then(e => {
+        alert('Level Data Copied to Clipboard')
+        console.log(e)
+      })
+    },
+    getLevelData: function () {
+      return this.levelData
+    }
   }
 }
 </script>
