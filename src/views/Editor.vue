@@ -62,6 +62,9 @@ export default {
         levelData: 'hello everybody!'
     }
   },
+  mounted () {
+    this.$store.dispatch('generateNewTileBoard', 10)
+  },
   methods: {
     copyLevelDataToClipboard: function () {
       this.$copyText(this.getLevelData()).then(e => {
@@ -71,6 +74,9 @@ export default {
     },
     getLevelData: function () {
       return this.levelData
+    },
+    test: function(){
+      this.$store.dispatch('generateNewTileBoard', 5)
     }
   }
 }
