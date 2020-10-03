@@ -74,9 +74,6 @@ export default {
     },
     getLevelData: function () {
       return this.levelData
-    },
-    test: function(){
-      this.$store.dispatch('generateNewTileBoard', 5)
     }
   }
 }

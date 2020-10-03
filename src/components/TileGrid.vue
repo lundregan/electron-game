@@ -53,10 +53,6 @@ data () {
     }
 },
   methods: {
-    test: function (n, t) {
-      this.tileGrid[n - 1][t - 1].click()
-      console.log(this.selectedTileType)
-    },
     changeMode: function () {
       this.playingGame = !this.playingGame
     },
