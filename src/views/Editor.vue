@@ -73,7 +73,10 @@ export default {
       })
     },
     getLevelData: function () {
-      return this.levelData
+      //return this.levelData
+      //return JSON.stringify(TileGrid)
+      const levelData = this.$store.getters.currentTileBoard
+      return JSON.stringify(levelData)
     }
   }
 }
