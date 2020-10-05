@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import TileGrid from '../components/TileGrid' 
+import TileGrid from '../components/TileGrid'
 
 export default {
   name: 'Home',

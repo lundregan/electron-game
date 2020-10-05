@@ -69,4 +69,29 @@ export class TileBoard {
 
         return false
     }
+    loadLevel(level: any) {
+        
+        
+
+        const loadedTileGrid = [];
+  
+        for(let i = 0; i < this.size; i++){
+            const columnArray = [];
+    
+            for(let j = 0; j < this.size; j++){
+
+                const tileX = level.board[i][j].x
+                const tileY = level.board[i][j].y
+                const tileType = level.board[i][j].type
+                const tileActive = level.board[i][j].active
+            columnArray.push(
+                new Tile(tileType, tileActive, tileX, tileY)
+            );
+            }
+    
+            loadedTileGrid.push(columnArray);
+        }
+    
+        this.board = loadedTileGrid;
+    }
 }

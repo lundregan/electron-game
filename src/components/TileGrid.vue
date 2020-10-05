@@ -42,7 +42,6 @@ data () {
     return {
       //tileBoard: new TileBoard(10),
       //selectedTileType: 'none-selected',
-      
       typeIcons: {
         'default': 'none',
         'toggle-up': 'arrow-up-thick',
