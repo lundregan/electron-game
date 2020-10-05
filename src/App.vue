@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <b-navbar>
+    <b-navbar class='row header'>
         <template slot="end">
           <router-link to="/">
               <b-icon
@@ -22,7 +22,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <router-view/>
+    <router-view class='row content'/>
   </div>
 </template>
 
@@ -41,6 +41,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+#app .header {
+  flex: 0 1 auto;
+}
+
+#app .content {
+  flex: 1 1 auto;
 }
 
 #nav {

@@ -70,8 +70,8 @@ data () {
 
 <style>
 .game-tile {
-  width: 100px;
-  height: 100px;
+  width: calc(100vh / 12);
+  height: calc(100vh / 12);
 
   margin: 1px;
 }
