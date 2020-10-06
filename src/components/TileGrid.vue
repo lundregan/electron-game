@@ -2,7 +2,7 @@
 <div class="tile-grid">
     <div class="gtiles" style='display: flex; flex-direction: column;'>
         <div class="rows" v-for='x in currentTileBoard.size' :key='x.id' style='display: flex;'>
-            <div class='game-tile'
+            <b-button class='game-tile'
                 v-for='y in currentTileBoard.size'
                 :key='y.id'
                 :class='{
@@ -12,12 +12,11 @@
                 }'
                 @click='tileClicked(x-1, y-1)'
             >
-                <!-- <b-icon icon=''></b-icon> -->
                 <span v-if='currentTileBoard.board[x-1][y-1]'>
                     <b-icon :icon='typeIcons[currentTileBoard.board[x-1][y-1].type]'></b-icon>
                 </span>
-                <span v-if='!playingGame'>{{currentTileBoard.board[x-1][y-1].type}}</span>
-            </div>
+                <p class='tile-type-text' v-if='!playingGame'>{{currentTileBoard.board[x-1][y-1].type}}</p>
+            </b-button>
         </div>
     </div>
 </div>
@@ -69,19 +68,23 @@ data () {
 </script>
 
 <style>
+.tile-type-text {
+  font-size: small;
+}
+
 .game-tile {
-  width: calc(100vh / 12);
-  height: calc(100vh / 12);
+  width: calc(100vh / 12) !important;
+  height: calc(100vh / 12) !important;
 
   margin: 1px;
 }
 
 .tile-active {
-  background: cyan;
+  background: cyan !important;
 }
 
 .tile-inactive {
-  background: lightgrey;
+  /* background: lightgrey !important; */
 }
 
 .tile-disabled {
