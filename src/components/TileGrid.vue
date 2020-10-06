@@ -83,10 +83,6 @@ data () {
   background: cyan !important;
 }
 
-.tile-inactive {
-  /* background: lightgrey !important; */
-}
-
 .tile-disabled {
     background: black;
 }
