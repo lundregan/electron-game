@@ -4,9 +4,9 @@
 
     <div class="columns is-vcentered menu">
         <div class="column">
-            <p class="title">Tiles</p>
-            <p class="sub-title">Gotta Complete em All!</p>
-            <b-field>
+            <p class="title ani">Tiles</p>
+            <p class="sub-title ani">Gotta Complete em All!</p>
+            <b-field class='ani'>
                 <router-link to='Game'>
                     <b-button
                         class='menu-button is-primary mx-4'
@@ -17,7 +17,7 @@
                     </b-button>
                 </router-link>
             </b-field>
-            <b-field>
+            <b-field class='ani'>
                 <router-link to='Levels'>
                     <b-button
                     class='menu-button is-primary mx-4'
@@ -28,7 +28,7 @@
                 </b-button>
                 </router-link>
             </b-field>
-            <b-field>
+            <b-field class='ani'>
                 <router-link to='Editor'>
                     <b-button class='menu-button is-primary mx-4' icon-left="puzzle-edit"
                     size='is-large'>Editor</b-button>
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="columns footer">
-        <div class="column">Crafted by <a href='//github.com/lundregan' target='_blank'>Ethan Lundregan</a></div>
+        <div class="column ani">Crafted by <a href='//github.com/lundregan' target='_blank'>Ethan Lundregan</a></div>
         <div class="column"></div>
         <div class="column"></div>
     </div>
@@ -45,9 +45,25 @@
 </template>
 
 <script>
+import anime from 'animejs/lib/anime.es.js';
+
 export default {
-    methods: {
-        
+    mounted () {
+        anime({
+            targets: 'div .ani',
+            direction: 'reverse',
+            delay: 250,
+            duration: 1000,
+            translateX: function() {
+                return anime.random(-1000, 1000);
+            },
+            translateY: function() {
+                return anime.random(-1000, 1000);
+            },
+            scale: 2,
+            rotate: '1turn',
+            easing: 'easeInCubic'
+        })
     }
 }
 </script>
