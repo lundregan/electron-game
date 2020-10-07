@@ -2,7 +2,7 @@
 <div class="tile-grid">
     <div class="gtiles" style='display: flex; flex-direction: column;'>
         <div class="rows" v-for='x in currentTileBoard.size' :key='x.id' style='display: flex;'>
-            <b-button class='game-tile'
+            <div class='game-tile'
                 v-for='y in currentTileBoard.size'
                 :key='y.id'
                 :class='{
@@ -16,7 +16,7 @@
                     <b-icon :icon='typeIcons[currentTileBoard.board[x-1][y-1].type]' size='is-large'></b-icon>
                 </span>
                 <p class='tile-type-text' v-if='!playingGame'>{{currentTileBoard.board[x-1][y-1].type}}</p>
-            </b-button>
+            </div>
         </div>
     </div>
 </div>
@@ -25,6 +25,7 @@
 <script>
 //import { TileBoard } from '../TileBoard.ts'
 import { mapGetters } from 'vuex'
+import anime from 'animejs/lib/anime.es.js';
 
 export default {
 name: 'TileGrid',
@@ -36,6 +37,17 @@ computed: {
   ...mapGetters([
     'currentTileBoard'
   ])
+},
+mounted () {
+  anime({
+    targets: 'div .game-tile',
+    left: '240px',
+    duration: '1000',
+    direction: 'reverse',
+    backgroundColor: '#FFF',
+    borderRadius: ['0%', '50%'],
+    easing: 'easeInOutQuad'
+  });
 },
 data () {
     return {
@@ -76,7 +88,13 @@ data () {
   width: calc(100vh / 12) !important;
   height: calc(100vh / 12) !important;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   margin: 1px;
+
+  background: #313131;
 }
 
 .tile-active {
