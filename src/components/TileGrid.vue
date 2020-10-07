@@ -13,7 +13,7 @@
                 @click='tileClicked(x-1, y-1)'
             >
                 <span v-if='currentTileBoard.board[x-1][y-1]'>
-                    <b-icon :icon='typeIcons[currentTileBoard.board[x-1][y-1].type]'></b-icon>
+                    <b-icon :icon='typeIcons[currentTileBoard.board[x-1][y-1].type]' size='is-large'></b-icon>
                 </span>
                 <p class='tile-type-text' v-if='!playingGame'>{{currentTileBoard.board[x-1][y-1].type}}</p>
             </b-button>
