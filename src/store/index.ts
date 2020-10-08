@@ -22,7 +22,10 @@ export default new Vuex.Store({
       state.currentTileBoard.loadLevel(board)
     },
     TOGGLE_TILE(state, cords){
-      state.currentTileBoard.toggleTile(cords.x, cords.y)
+      state.currentTileBoard.toggleTile(cords[0], cords[1])
+    },
+    SET_TILE_TYPE(state, payload){
+      state.currentTileBoard.setTileType(payload.x, payload.y, payload.type)
     }
   },
   actions: {
@@ -35,9 +38,11 @@ export default new Vuex.Store({
       //const levelData = JSON.parse(level)
       context.commit('LOAD_LEVEL', level)     
     },
-    toggleTile (x, y) {
-      const cords = {x: x, y: y}
-      this.commit('TOGGLE_TILE', cords)
+    toggleTile(context, cords){
+      context.commit('TOGGLE_TILE', cords)
+    },
+    changeTileType(context, payload) {
+      context.commit('SET_TILE_TYPE', payload)
     }
   },
   modules: {

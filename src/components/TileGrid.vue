@@ -5,6 +5,7 @@
             <div class='game-tile'
                 v-for='y in currentTileBoard.size'
                 :key='y.id'
+                :id='"tile-" + x + "-" + y'
                 :class='{
                     "tile-active" : currentTileBoard.board[x-1][y-1].active ,
                     "tile-inactive" : !currentTileBoard.board[x-1][y-1].active,
@@ -68,13 +69,17 @@ data () {
     },
     tileClicked: function (x, y) {
       if(this.playingGame){
-        this.currentTileBoard.toggleTile(x, y)
+        this.$store.dispatch('toggleTile', [x, y])
       }else{
-        console.log(`Before: ${this.currentTileBoard.board[x][y].type}`)
-        this.currentTileBoard.board[x][y].type = this.selectedTileType
-        console.log(`After: ${this.currentTileBoard.board[x][y].type}`)
+        const payload = {
+          x: x,
+          y: y,
+          type: this.selectedTileType
+        }
+        this.$store.dispatch('changeTileType', payload)
       }
-    }
+
+  }
   }
 }
 </script>

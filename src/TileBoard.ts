@@ -92,4 +92,7 @@ export class TileBoard {
     
         this.board = loadedTileGrid;
     }
+    setTileType(x: number, y: number, type: string){
+        this.board[x][y].type = type
+    }
 }
