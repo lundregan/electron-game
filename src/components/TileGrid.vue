@@ -24,36 +24,40 @@
 </template>
 
 <script>
-//import { TileBoard } from '../TileBoard.ts'
 import { mapGetters } from 'vuex'
 import anime from 'animejs/lib/anime.es.js';
 
 export default {
-name: 'TileGrid',
-props: [
-    'playingGame',
-    'selectedTileType'
-],
-computed: {
-  ...mapGetters([
-    'currentTileBoard'
-  ])
-},
-mounted () {
-  anime({
-    targets: 'div .game-tile',
-    left: '240px',
-    duration: '1000',
-    direction: 'reverse',
-    backgroundColor: '#FFF',
-    borderRadius: ['0%', '50%'],
-    easing: 'easeInOutQuad'
-  });
-},
-data () {
+  name: 'TileGrid',
+  props: [
+      'playingGame',
+      'selectedTileType'
+  ],
+  computed: {
+    ...mapGetters([
+      'currentTileBoard'
+    ])
+  },
+  mounted () {
+    anime({
+      targets: 'div .game-tile',
+      left: '240px',
+      duration: '1000',
+      direction: 'reverse',
+      backgroundColor: '#313131',
+      borderRadius: ['0%', '50%'],
+      easing: 'easeInOutQuad'
+    })
+
+    const unsubscribe = this.$store.subscribe((mutation, state) => {
+      if(mutation.type == 'TOGGLE_TILE'){
+        //console.log(mutation.payload)
+        this.testAni(mutation.payload)
+      }
+    })
+  },
+  data () {
     return {
-      //tileBoard: new TileBoard(10),
-      //selectedTileType: 'none-selected',
       typeIcons: {
         'default': 'none',
         'toggle-up': 'arrow-up-thick',
@@ -62,7 +66,7 @@ data () {
         'toggle-left': 'arrow-left-thick'
       }
     }
-},
+  },
   methods: {
     changeMode: function () {
       this.playingGame = !this.playingGame
@@ -78,8 +82,33 @@ data () {
         }
         this.$store.dispatch('changeTileType', payload)
       }
+    },
+    testAni: function (payload) {
+      const x = payload[0]
+      const y = payload[1]
 
-  }
+      const color = this.currentTileBoard.board[x][y].active ? '#FF0067' : '#313131'
+
+      anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+      })
+      .add({
+        targets: `#tile-${x+1}-${y+1}`,
+        scale: 1.2,
+        background: color,
+        duration: 300,
+        easing: 'easeInOutQuint'
+      })
+      .add({
+        targets: `#tile-${x+1}-${y+1}`,
+        scale: 1,
+        duration: 300,
+        direction: 'reverse',
+        easing: 'easeOutQuint'
+      })
+      
+    }
   }
 }
 </script>
@@ -99,14 +128,14 @@ data () {
 
   margin: 1px;
 
-  background: #313131;
+  background: #212121; 
 }
 
-.tile-active {
+/* .tile-active {
   background: cyan !important;
 }
 
 .tile-disabled {
     background: black;
-}
+} */
 </style>

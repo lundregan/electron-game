@@ -1,4 +1,5 @@
 import { Tile } from './Tile'
+import store from './store/index'
 
 export class TileBoard {
     size: number
