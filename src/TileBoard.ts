@@ -27,6 +27,13 @@ export class TileBoard {
   
       this.board = generatedTileGrid;
     }
+    ToggleTileLater(cords: Array<number>){
+        setTimeout(() => {
+            store.dispatch('toggleTile', cords)
+        },
+            100
+        );
+    }
     toggleTile(x: number, y: number) {
         if(!this.outOfBounds(x, y)){
             const tile = this.board[x][y]
@@ -37,19 +44,19 @@ export class TileBoard {
                 switch(tileType){
                 case 'toggle-up':
                     tile.toggleActive()
-                    this.toggleTile(x-1, y)
+                    this.ToggleTileLater([x-1,y])
                     break
                 case 'toggle-down':
                     tile.toggleActive()
-                    this.toggleTile(x+1, y)
+                    this.ToggleTileLater([x+1,y])
                     break
                 case 'toggle-right':
                     tile.toggleActive()
-                    this.toggleTile(x, y+1)
+                    this.ToggleTileLater([x,y+1])
                     break
                 case 'toggle-left':
                     tile.toggleActive()
-                    this.toggleTile(x, y-1)
+                    this.ToggleTileLater([x,y-1])
                     break
                 default:
                     tile.toggleActive()
