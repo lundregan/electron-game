@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <b-navbar class='row header'>
+    <b-navbar color='#212121' style='background: #212121' class='b-navbar row header'>
         <template slot="end">
           <router-link to="/">
               <b-icon
@@ -18,10 +18,6 @@
             </router-link>
         </template>
     </b-navbar>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
     <router-view class='row content'/>
   </div>
 </template>
@@ -36,11 +32,13 @@ body {
 #app {
   height: 100%;
 
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Consolas, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+
+  color: white;
+  background: #212121;
 
   display: flex;
   flex-flow: column;
@@ -53,18 +51,5 @@ body {
 
 #app .content {
   flex: 1 1 auto;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

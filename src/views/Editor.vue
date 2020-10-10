@@ -1,6 +1,6 @@
 <template>
 <section class="editor container">
-    <p class='title'>Editing Game</p>
+    <p class='title' style='color: white;'>Editing Game</p>
     
     
     
@@ -83,6 +83,7 @@ export default {
 
 <style lang="scss" scoped>
 .button-active {
-    background: green;
+    color: white;
+    background: #7957d5;
 }
 </style>

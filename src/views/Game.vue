@@ -1,6 +1,6 @@
 <template>
   <section class="game container">
-    <p class="title">Playing Game</p>
+    <p class="title" style='color: white;'>Playing Game</p>
     <div class="columns">
         <div class="column"></div>
         <div class="column">

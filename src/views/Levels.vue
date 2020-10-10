@@ -1,6 +1,6 @@
 <template>
   <div class="levels">
-    <p class='title'>Levels</p>
+    <p class='title' style='color: white;'>Levels</p>
 
     <b-button 
         v-for='level in gameLevels' 

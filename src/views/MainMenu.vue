@@ -4,8 +4,8 @@
 
     <div class="columns is-vcentered menu">
         <div class="column">
-            <p class="title ani">Tiles</p>
-            <p class="sub-title ani">Gotta Complete em All!</p>
+            <p class="title ani menu-title mb-0 is-size-1">Tiles</p>
+            <p class="sub-title ani mb-6">Gotta Complete em All!</p>
             <b-field class='ani'>
                 <router-link to='Game'>
                     <b-button
@@ -36,7 +36,7 @@
             </b-field>
         </div>
     </div>
-    <div class="columns footer">
+    <div class="columns footer" style='background: #212121'>
         <div class="column ani">Crafted by <a href='//github.com/lundregan' target='_blank'>Ethan Lundregan</a></div>
         <div class="column"></div>
         <div class="column"></div>
@@ -68,7 +68,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
+$primary: #7957d5;
+
 .menu {
     min-height: 80%;
 }
@@ -82,5 +84,10 @@ export default {
     min-height: 100px;
 
     font-size: 2rem
+}
+.title {
+    color: $primary !important;
+    // font-size: 4rem !important;
+    // margin-bottom: 0 !important;
 }
 </style>

@@ -15,8 +15,8 @@
             >
                 <span v-if='currentTileBoard.board[x-1][y-1]'>
                     <b-icon :icon='typeIcons[currentTileBoard.board[x-1][y-1].type]' size='is-large'></b-icon>
+                    <p class='tile-type-text' v-if='!playingGame'>{{currentTileBoard.board[x-1][y-1].type}}</p>
                 </span>
-                <p class='tile-type-text' v-if='!playingGame'>{{currentTileBoard.board[x-1][y-1].type}}</p>
             </div>
         </div>
     </div>
@@ -64,7 +64,7 @@ export default {
         'toggle-right': 'arrow-right-thick',
         'toggle-down': 'arrow-down-thick',
         'toggle-left': 'arrow-left-thick'
-      }
+      } 
     }
   },
   methods: {
@@ -128,7 +128,7 @@ export default {
 
   margin: 1px;
 
-  background: #212121; 
+  background: #414141; 
 }
 
 /* .tile-active {
