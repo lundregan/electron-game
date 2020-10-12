@@ -44,8 +44,8 @@ export default new Vuex.Store({
     SET_TILE_TYPE(state, payload){
       state.currentTileBoard.setTileType(payload.x, payload.y, payload.type)
     },
-    INCREMENT_MOVES(state){
-      state.currentMoves += 1
+    INCREMENT_MOVES(state, value){
+      state.currentMoves += value
     }
   },
   actions: {
@@ -59,11 +59,14 @@ export default new Vuex.Store({
       context.commit('LOAD_LEVEL', level)     
     },
     toggleTile(context, cords){
-      context.commit('INCREMENT_MOVES')
+      //context.commit('INCREMENT_MOVES')
       context.commit('TOGGLE_TILE', cords)
     },
     changeTileType(context, payload) {
       context.commit('SET_TILE_TYPE', payload)
+    },
+    tileClicked(context, value) {
+      context.commit('INCREMENT_MOVES', value)
     }
   },
   modules: {

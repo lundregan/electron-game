@@ -76,6 +76,7 @@ export default {
     tileClicked: function (x, y) { 
       if(this.playingGame){
         if(this.currentTileBoard.board[x][y].type != ('disabled' && 'invisible')){
+          this.$store.dispatch('tileClicked', 1)
           this.$store.dispatch('toggleTile', [x, y])
         }
       }else{
