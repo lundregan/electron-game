@@ -2,6 +2,13 @@
   <div id="app">
     <b-navbar color='#212121' style='background: #212121' class='b-navbar row header'>
         <template slot="end">
+          <router-link to="/help">
+            <b-icon
+              icon="help"
+              size="is-large"
+              style='margin: 8px;'
+            />
+          </router-link>
           <router-link to="/">
               <b-icon
                   icon="menu"

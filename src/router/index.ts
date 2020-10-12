@@ -5,6 +5,7 @@ import Settings from '../views/Settings.vue'
 import MainMenu from '../views/MainMenu.vue'
 import Editor from '../views/Editor.vue'
 import Levels from '../views/Levels.vue'
+import Help from '../views/Help.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes: Array<RouteConfig> = [
     path: '/levels',
     name: 'Levels',
     component: Levels
+  },
+  {
+    path: '/help',
+    name: 'Help',
+    component: Help
   }
 ]
 
