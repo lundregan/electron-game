@@ -57,7 +57,8 @@ export default {
             'toggle-down',
             'toggle-right',
             'toggle-left',
-            'disabled'
+            'disabled',
+            'invisible'
         ],
         levelData: 'hello everybody!'
     }

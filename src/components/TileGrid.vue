@@ -9,7 +9,8 @@
                 :class='{
                     "tile-active" : currentTileBoard.board[x-1][y-1].active ,
                     "tile-inactive" : !currentTileBoard.board[x-1][y-1].active,
-                    "tile-disabled" : currentTileBoard.board[x-1][y-1].type === "disabled"
+                    "tile-disabled" : currentTileBoard.board[x-1][y-1].type === "disabled",
+                    "tile-invisible" : currentTileBoard.board[x-1][y-1].type === "invisible"
                 }'
                 @click='tileClicked(x-1, y-1)'
             >
@@ -49,6 +50,7 @@ export default {
       easing: 'easeInOutQuad'
     })
 
+    // On unmount needs to be destroyed?
     const unsubscribe = this.$store.subscribe((mutation, state) => {
       if(mutation.type == 'TOGGLE_TILE'){
         //console.log(mutation.payload)
@@ -72,8 +74,11 @@ export default {
       this.playingGame = !this.playingGame
     },
     tileClicked: function (x, y) {
+      console.log(this.currentTileBoard.board[x][y].type)
+      console.log(this.currentTileBoard.board[x][y].type != 'invisible')
+      
       if(this.playingGame){
-        if(this.currentTileBoard.board[x][y].type != 'disabled'){
+        if(this.currentTileBoard.board[x][y].type != ('disabled' && 'invisible')){
           this.$store.dispatch('toggleTile', [x, y])
         }
       }else{
@@ -139,5 +144,8 @@ export default {
 */
 .tile-disabled {
     background: black !important;
+}
+.tile-invisible {
+    background: #212121 !important;
 } 
 </style>
