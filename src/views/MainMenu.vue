@@ -5,7 +5,7 @@
     <div class="columns is-vcentered menu">
         <div class="column">
             <p class="title ani menu-title mb-0 is-size-1">Tiles</p>
-            <p class="sub-title ani mb-6">Gotta Complete em All!</p>
+            <p class="sub-title ani mb-6">{{currentMenuQuote}}</p>
             <b-field class='ani'>
                 <router-link to='Game'>
                     <b-button
@@ -48,7 +48,20 @@
 import anime from 'animejs/lib/anime.es.js';
 
 export default {
+    data () {
+        return {
+            currentMenuQuote: '',
+            menuQuotes: [
+                'Toggle some more',
+                'Gotta toggle them all',
+                'Just keep toggling, Just keep toggling',
+                'Just one more tile before bed...'
+            ]
+        }
+    },
     mounted () {
+        this.currentMenuQuote = this.menuQuotes[Math.floor(Math.random() * this.menuQuotes.length)]
+
         anime({
             targets: 'div .ani',
             direction: 'reverse',
