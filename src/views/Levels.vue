@@ -5,7 +5,7 @@
     <b-button 
         v-for='level in gameLevels' 
         :key='level.id'
-        class='mx-1 px-4'
+        class='is-primary mx-1 px-5'
         @click='loadLevel(level)'
     >
         {{level.name}}
