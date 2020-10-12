@@ -9,17 +9,22 @@
                     <article class="media media-tile">
                         <div class="media-left">
                         <figure class="image is-64x64">
-                            <div class="tile">
+                            <div class="tile" v-if='tileType.unlocked'>
                                 <span v-if='tileType.icon' style='height: 100%;'>
                                 <b-icon :icon='tileType.icon' style='height: 100%;'></b-icon>
                                 </span>
                             </div>
+                            <b-skeleton v-else width='50px' height='50px'></b-skeleton>
                         </figure>
                         </div>
                         <div class="media-content">
-                        <div class="content">
+                        <div v-if='tileType.unlocked' class="content">
                             <p class='subtitle' style='color: #7957d5;'>{{tileType.name}}</p>
                             <p>{{tileType.description}}</p>
+                        </div>
+                        <div v-else style='width: 100%;'>
+                            <b-skeleton width='100px'></b-skeleton>
+                            <b-skeleton height='80px'></b-skeleton>
                         </div>
                         </div>
                     </article>
@@ -38,12 +43,20 @@ data () {
             {
                 name: 'Default',
                 icon: null,
-                description: 'Toggles itself only'
+                description: 'Toggles itself only',
+                unlocked: true
             },
             {
                 name: 'Single Direction',
                 icon: 'arrow-right-thick',
-                description: 'Toggles itself and a single tile in direction of arrow'
+                description: 'Toggles itself and a single tile in direction of arrow',
+                unlocked: true
+            },
+            {
+                name: 'Single Direction Test',
+                icon: 'arrow-left-thick',
+                description: 'testing things',
+                unlocked: false
             }
         ]
     }
