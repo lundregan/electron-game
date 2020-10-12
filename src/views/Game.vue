@@ -2,7 +2,15 @@
   <section class="game container">
     <p class="title" style='color: white;'>Playing Game</p>
     <div class="columns">
-        <div class="column"></div>
+        <div class="column">
+          <div>
+            <p v-if='currentTileBoardCompleted'>Complete</p>
+            <p v-else>Incomplete</p>
+          </div>
+          <div>
+            <p>Moves: {{currentMoves}}</p>
+          </div>
+        </div>
         <div class="column">
           <TileGrid
             :playingGame=true
@@ -15,15 +23,19 @@
 
 <script>
 import TileGrid from '../components/TileGrid'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
     TileGrid
   },
-  // mounted () {
-    
-  // },
+  computed: {
+    ...mapGetters([
+      'currentTileBoardCompleted',
+      'currentMoves'
+    ])
+  },
   data () {
     return {
       
