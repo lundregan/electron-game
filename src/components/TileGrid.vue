@@ -53,8 +53,7 @@ export default {
     // On unmount needs to be destroyed?
     const unsubscribe = this.$store.subscribe((mutation, state) => {
       if(mutation.type == 'TOGGLE_TILE'){
-        //console.log(mutation.payload)
-        this.testAni(mutation.payload)
+        this.tileToggleAnimation(mutation.payload)
       }
     })
   },
@@ -73,10 +72,7 @@ export default {
     changeMode: function () {
       this.playingGame = !this.playingGame
     },
-    tileClicked: function (x, y) {
-      console.log(this.currentTileBoard.board[x][y].type)
-      console.log(this.currentTileBoard.board[x][y].type != 'invisible')
-      
+    tileClicked: function (x, y) { 
       if(this.playingGame){
         if(this.currentTileBoard.board[x][y].type != ('disabled' && 'invisible')){
           this.$store.dispatch('toggleTile', [x, y])
@@ -90,7 +86,7 @@ export default {
         this.$store.dispatch('changeTileType', payload)
       }
     },
-    testAni: function (payload) {
+    tileToggleAnimation: function (payload) {
       const x = payload[0]
       const y = payload[1]
 
@@ -138,10 +134,6 @@ export default {
   background: #414141; 
 }
 
-/* .tile-active {
-  background: cyan !important;
-}
-*/
 .tile-disabled {
     background: black !important;
 }
