@@ -73,7 +73,9 @@ export default {
     },
     tileClicked: function (x, y) {
       if(this.playingGame){
-        this.$store.dispatch('toggleTile', [x, y])
+        if(this.currentTileBoard.board[x][y].type != 'disabled'){
+          this.$store.dispatch('toggleTile', [x, y])
+        }
       }else{
         const payload = {
           x: x,
@@ -87,7 +89,7 @@ export default {
       const x = payload[0]
       const y = payload[1]
 
-      const color = this.currentTileBoard.board[x][y].active ? '#FF0067' : '#313131'
+      const color = this.currentTileBoard.board[x][y].active ? '#FF0067' : '#414141'
 
       anime.timeline({
         easing: 'easeOutExpo',
@@ -134,8 +136,8 @@ export default {
 /* .tile-active {
   background: cyan !important;
 }
-
+*/
 .tile-disabled {
-    background: black;
-} */
+    background: black !important;
+} 
 </style>
