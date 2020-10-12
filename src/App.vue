@@ -32,6 +32,10 @@
 <style lang="scss">
 @import 'https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css';
 
+html {
+  overflow-y: hidden !important;
+}
+
 body {
   height: 100vh;
 }
