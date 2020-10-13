@@ -51,6 +51,9 @@ export default new Vuex.Store({
     },
     INCREMENT_MOVES(state, value){
       state.currentMoves += value
+    },
+    RESET_MOVES(state){
+      state.currentMoves = 0
     }
   },
   actions: {
@@ -72,6 +75,9 @@ export default new Vuex.Store({
     },
     tileClicked(context, value) {
       context.commit('INCREMENT_MOVES', value)
+    },
+    gameMounted(context){
+      context.commit('RESET_MOVES')
     }
   },
   modules: {

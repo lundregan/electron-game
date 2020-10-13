@@ -40,6 +40,8 @@ export default {
     ])
   },
   mounted () {
+    this.$store.dispatch('gameMounted')
+
     anime({
       targets: 'div .game-tile',
       left: '240px',
