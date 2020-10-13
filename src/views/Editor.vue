@@ -11,7 +11,7 @@
                 <p v-else>Play Game</p>
             </b-button>
             <b-button 
-                v-for='tileType in tileTypes'
+                v-for='tileType in testTypes'
                 :key='tileType.id'
                 class='px-4 mb-4'
                 :class='{"button-active" : selectedTileType == tileType}'
@@ -38,15 +38,18 @@
 
 <script>
 import TileGrid from '../components/TileGrid'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
     TileGrid
   },
-  // mounted () {
-    
-  // },
+  computed: {
+    ...mapGetters({
+      testTypes: 'tileTypes'
+    })
+  },
   data () {
     return {
         playing: false,

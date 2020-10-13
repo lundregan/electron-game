@@ -2,13 +2,15 @@ import Vue from 'vue'
 import Vuex, { mapGetters } from 'vuex'
 
 import { TileBoard } from '../TileBoard'
+import { TileTypes } from '../data/TileTypes'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     currentTileBoard: new TileBoard(10),
-    currentMoves: 0
+    currentMoves: 0,
+    tileTypes: new TileTypes()
   },
   getters: {
     currentTileBoard: state => {
@@ -29,7 +31,10 @@ export default new Vuex.Store({
     },
     currentMoves: state => {
       return state.currentMoves
-    }
+    },
+    tileTypes: state => {
+      return state.tileTypes.getTypes()
+    },
   },
   mutations: {
     SET_TILEBOARD(state, tileBoard: TileBoard){
