@@ -35,6 +35,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  mounted () {
+    this.$store.dispatch('changeTheme', 'default')
+  }
+}
+</script>
+
 <style lang="scss">
 @import 'https://cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css';
 

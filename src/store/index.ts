@@ -13,7 +13,8 @@ export default new Vuex.Store({
     currentMoves: 0,
     tileTypes: new TileTypes(),
     themes: new Themes(),
-    currentTheme: null
+    currentTheme: null,
+    activeColor: '#ffffff'
   },
   getters: {
     currentTileBoard: state => {
@@ -40,6 +41,9 @@ export default new Vuex.Store({
     },
     themes: state => {
       return state.themes
+    },
+    currentTheme: state => {
+      return state.currentTheme
     }
   },
   mutations: {
@@ -63,6 +67,9 @@ export default new Vuex.Store({
     },
     SET_THEME(state, themeName){
       state.currentTheme = state.themes[themeName]
+    },
+    SET_ACTIVE_COLOR(state, color){
+      state.activeColor = color
     }
   },
   actions: {
@@ -90,6 +97,9 @@ export default new Vuex.Store({
     },
     changeTheme(context, themeName){
       context.commit('SET_THEME', themeName)
+    },
+    setActiveColor(context, color){
+      context.commit('SET_ACTIVE_COLOR', color)
     }
   },
   modules: {

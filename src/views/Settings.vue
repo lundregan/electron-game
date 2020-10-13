@@ -19,9 +19,13 @@
           </b-field>
           <b-field>
             <div
-              style='width: 50px; height:50px; background: white;'
+              class='mx-2'
+              v-for='color in currentTheme.colors'
+              :key='color.id'
+              style='width: 50px; height:50px;'
+              :style='` background: ${color}`'
+              @click='changeColor(color)'
             >
-              
             </div>
           </b-field>
           <b-field label="Color Blind Mode">
@@ -54,6 +58,7 @@ data () {
 },
 computed: {
   ...mapGetters([
+    'currentTheme',
     'themes'
   ])
 },
@@ -63,10 +68,12 @@ watch: {
   }
 },
 mounted () {
-  console.log(this.themes2)
+  console.log(this.themes)
 },
 methods: {
-  // methods
+  changeColor: function(color) {
+    this.$store.dispatch('setActiveColor', color)
+  }
 }
 }
 </script>

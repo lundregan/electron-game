@@ -17,8 +17,15 @@ export class Theme {
 export class Themes {
     pastel: Theme
     bright: Theme
-    
+    default: Theme
+
     constructor(){
+        this.default = new Theme(
+            'default',
+            [
+                '#ffffff'
+            ]
+        ),
         this.pastel = new Theme(
             'pastel',
             [
