@@ -3,6 +3,7 @@ import Vuex, { mapGetters } from 'vuex'
 
 import { TileBoard } from '../TileBoard'
 import { TileTypes } from '../data/TileTypes'
+import { Theme, Themes } from '../data/Themes'
 
 Vue.use(Vuex)
 
@@ -10,7 +11,9 @@ export default new Vuex.Store({
   state: {
     currentTileBoard: new TileBoard(10),
     currentMoves: 0,
-    tileTypes: new TileTypes()
+    tileTypes: new TileTypes(),
+    themes: new Themes(),
+    currentTheme: null
   },
   getters: {
     currentTileBoard: state => {
@@ -35,6 +38,9 @@ export default new Vuex.Store({
     tileTypes: state => {
       return state.tileTypes.getTypes()
     },
+    themes: state => {
+      return state.themes
+    }
   },
   mutations: {
     SET_TILEBOARD(state, tileBoard: TileBoard){
@@ -54,6 +60,9 @@ export default new Vuex.Store({
     },
     RESET_MOVES(state){
       state.currentMoves = 0
+    },
+    SET_THEME(state, themeName){
+      state.currentTheme = state.themes[themeName]
     }
   },
   actions: {
@@ -78,6 +87,9 @@ export default new Vuex.Store({
     },
     gameMounted(context){
       context.commit('RESET_MOVES')
+    },
+    changeTheme(context, themeName){
+      context.commit('SET_THEME', themeName)
     }
   },
   modules: {

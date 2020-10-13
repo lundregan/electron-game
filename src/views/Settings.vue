@@ -7,15 +7,22 @@
       <div class="columns">
         <div class="column">
           <b-field label="Theme">
-            <b-select :placeholder="themes[0]" disabled>
+            <b-select v-model='chosenTheme'>
               <option
                 v-for="theme in themes"
-                :value="theme.id"
+                :value="theme.name"
                 :key="theme.id"
               >
-                {{ theme }}
+                {{ theme.name }}
               </option>
             </b-select>
+          </b-field>
+          <b-field>
+            <div
+              style='width: 50px; height:50px; background: white;'
+            >
+              
+            </div>
           </b-field>
           <b-field label="Color Blind Mode">
             <b-select :placeholder="colorBlindModes[0]" disabled>
@@ -34,16 +41,32 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
 data () {
   return {
-    themes: [
-      'Default Light'
-    ],
+    chosenTheme: 'pastel',
     colorBlindModes: [
       'Off'
     ]
   }
+},
+computed: {
+  ...mapGetters([
+    'themes'
+  ])
+},
+watch: {
+  chosenTheme: function(val){
+    this.$store.dispatch('changeTheme', val)
+  }
+},
+mounted () {
+  console.log(this.themes2)
+},
+methods: {
+  // methods
 }
 }
 </script>
