@@ -16,16 +16,22 @@
                   style='margin: 8px;'
               />
             </router-link>
-            <router-link to="settings">
-              <b-icon
-                  icon="cog"
-                  size="is-large"
-                  style='margin: 8px;'
-              />
-            </router-link>
+              <router-link to="settings">
+                <b-icon
+                    icon="cog"
+                    size="is-large"
+                    style='margin: 8px;'
+                />
+              </router-link>
         </template>
     </b-navbar>
-    <router-view class='row content'/>
+    <transition
+      mode="out-in"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut"
+    >
+      <router-view class='row content'/>
+    </transition>
   </div>
 </template>
 

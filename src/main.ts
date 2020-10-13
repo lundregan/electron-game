@@ -7,6 +7,7 @@ import VueClipboard from 'vue-clipboard2'
 import anime from 'animejs/lib/anime.es.js'
 
 import 'buefy/dist/buefy.css'
+import 'animate.css'
 
 Vue.config.productionTip = false
 
