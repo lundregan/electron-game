@@ -16,7 +16,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import levels from '../levels/levels'
+import levels from '../data/levels/levels'
 
 export default {
     computed: {
@@ -35,7 +35,8 @@ export default {
     methods: {
         loadLevel: function (level) {
             console.log('loading level')
-            this.$store.dispatch('loadLevel', level.JSON).then(
+            console.log(level.JSON)
+            this.$store.dispatch('loadLevel', level.JSON.data).then(
                 this.$router.push('Game')
             )
         }
