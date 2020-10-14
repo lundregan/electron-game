@@ -25,7 +25,13 @@ export default new Vuex.Store({
       
       for(let i = 0; i < state.currentTileBoard.board.length; i++){
         for (let j = 0; j < state.currentTileBoard.board[i].length; j++) {
-          if(state.currentTileBoard.board[i][j].active === false){
+          const currentTile = state.currentTileBoard.board[i][j]
+          
+          if(
+            currentTile.type != 'disabled' &&
+            currentTile.type != 'invisible' &&
+            currentTile.active === false
+          ){
             win = false
           }
         }
