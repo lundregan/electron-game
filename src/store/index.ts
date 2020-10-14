@@ -14,7 +14,7 @@ export default new Vuex.Store({
     tileTypes: new TileTypes(),
     themes: new Themes(),
     currentTheme: null,
-    activeColor: '#ffffff'
+    activeColor: '#3a86ff'
   },
   getters: {
     currentTileBoard: state => {
@@ -44,6 +44,9 @@ export default new Vuex.Store({
     },
     currentTheme: state => {
       return state.currentTheme
+    },
+    activeColor: state => {
+      return state.activeColor
     }
   },
   mutations: {

@@ -36,7 +36,8 @@ export default {
   ],
   computed: {
     ...mapGetters([
-      'currentTileBoard'
+      'currentTileBoard',
+      'activeColor'
     ])
   },
   mounted () {
@@ -94,7 +95,7 @@ export default {
       const x = payload[0]
       const y = payload[1]
 
-      const color = this.currentTileBoard.board[x][y].active ? '#FF0067' : '#414141'
+      const color = this.currentTileBoard.board[x][y].active ? this.activeColor : '#414141'
 
       anime.timeline({
         easing: 'easeOutExpo',

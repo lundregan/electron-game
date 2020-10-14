@@ -23,7 +23,7 @@ export class Themes {
         this.default = new Theme(
             'default',
             [
-                '#ffffff'
+                '#3a86ff'
             ]
         ),
         this.pastel = new Theme(

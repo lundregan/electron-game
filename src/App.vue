@@ -7,6 +7,7 @@
               icon="help"
               size="is-large"
               style='margin: 8px;'
+              :style='`color: ${activeColor};`'
             />
           </router-link>
           <router-link to="/">
@@ -14,6 +15,7 @@
                   icon="menu"
                   size="is-large"
                   style='margin: 8px;'
+                  :style='`color: ${activeColor};`'
               />
             </router-link>
               <router-link to="settings">
@@ -21,6 +23,7 @@
                     icon="cog"
                     size="is-large"
                     style='margin: 8px;'
+                    :style='`color: ${activeColor};`'
                 />
               </router-link>
         </template>
@@ -36,9 +39,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   mounted () {
     this.$store.dispatch('changeTheme', 'default')
+  },
+  computed: {
+    ...mapGetters([
+      'activeColor'
+    ])
   }
 }
 </script>

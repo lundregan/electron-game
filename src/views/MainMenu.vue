@@ -4,14 +4,15 @@
 
     <div class="columns is-vcentered menu">
         <div class="column">
-            <p class="title ani menu-title mb-0 is-size-1">Tiles</p>
-            <p class="sub-title ani mb-6">{{currentMenuQuote}}</p>
+            <p class="ani menu-title mb-0 is-size-1" :style='`color: ${activeColor};`'>Tiles</p>
+            <p class="sub-title ani mb-6" >{{currentMenuQuote}}</p>
             <b-field class='ani'>
                 <router-link to='Game'>
                     <b-button
                         class='menu-button is-primary mx-4'
                         icon-left="play-circle"
                         size='is-large'
+                        :style='`background: ${activeColor};`'
                     >
                         Continue
                     </b-button>
@@ -24,6 +25,7 @@
                     class='menu-button is-primary mx-4'
                     icon-left="package-variant"
                     size='is-large'
+                    :style='`background: ${activeColor};`'
                 >
                     Levels
                 </b-button>
@@ -32,13 +34,17 @@
             <b-field class='ani'>
                 <router-link to='Editor'>
                     <b-button class='menu-button is-primary mx-4' icon-left="puzzle-edit"
-                    size='is-large'>Editor</b-button>
+                    size='is-large' :style='`background: ${activeColor};`'>Editor</b-button>
                 </router-link>
             </b-field>
         </div>
     </div>
     <div class="columns footer" style='background: #212121'>
-        <div class="column ani">Crafted by <a href='//github.com/lundregan' target='_blank'>Ethan Lundregan</a></div>
+        <div class="column ani" >Crafted by <a 
+                                                href='//github.com/lundregan'
+                                                target='_blank'
+                                                :style='`color: ${activeColor};`'
+                                            >Ethan Lundregan</a></div>
         <div class="column"></div>
         <div class="column"></div>
     </div>
@@ -47,6 +53,7 @@
 
 <script>
 import anime from 'animejs/lib/anime.es.js';
+import { mapGetters } from 'vuex';
 
 export default {
     data () {
@@ -59,6 +66,11 @@ export default {
                 'Just one more tile before bed...'
             ]
         }
+    },
+    computed: {
+        ...mapGetters([
+            'activeColor'
+        ])
     },
     mounted () {
         this.currentMenuQuote = this.menuQuotes[Math.floor(Math.random() * this.menuQuotes.length)]

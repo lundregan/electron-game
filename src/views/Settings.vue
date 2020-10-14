@@ -1,8 +1,8 @@
 <template>
   <div class="settings" v-on:keyup.esc='$router.go(-1)' v-on:keyup.space='$router.go(-1)'>
-      <b-button class='is-primary' @click='$router.go(-1)'>Back to game</b-button>
+      <b-button class='is-primary' @click='$router.go(-1)' :style='`background: ${activeColor};`'>Back to game</b-button>
       
-      <p class='title pt-6'>Settings</p>
+      <p class='pt-6 is-none' :style='`color: ${activeColor};`'>Settings</p>
       
       <div class="columns">
         <div class="column">
@@ -59,7 +59,8 @@ data () {
 computed: {
   ...mapGetters([
     'currentTheme',
-    'themes'
+    'themes',
+    'activeColor'
   ])
 },
 watch: {
