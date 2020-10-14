@@ -1,6 +1,6 @@
 <template>
   <section class="game container">
-    <p class="title" style='color: white;'>Playing Game</p>
+    <p :style='`background: ${activeColor};`'>Playing Game</p>
     <div class="columns">
         <div class="column">
           <div>

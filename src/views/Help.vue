@@ -1,6 +1,6 @@
 <template>
   <div class="help">
-        <p class='title'>HELP</p>
+        <p :style='`color: ${activeColor};`'>HELP</p>
 
         <div class="columns">
             <div class="column"></div>
@@ -19,8 +19,8 @@
                         </div>
                         <div class="media-content">
                         <div v-if='tileType.unlocked' class="content">
-                            <p class='subtitle' style='color: #7957d5;'>{{tileType.name}}</p>
-                            <p>{{tileType.description}}</p>
+                            <p class='subtitle' :style='`color: ${activeColor};`'>{{tileType.name}}</p>
+                            <p :style='`color: ${activeColor};`'>{{tileType.description}}</p>
                         </div>
                         <div v-else style='width: 100%;'>
                             <b-skeleton width='100px'></b-skeleton>
@@ -36,7 +36,13 @@
 </template>
 
 <script>
+import { mapGetters} from 'vuex'
 export default {
+computed: {
+    ...mapGetters([
+        'activeColor'
+    ])
+},
 data () {
     return{
         tileTypes: [

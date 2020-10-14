@@ -1,22 +1,23 @@
 <template>
 <section class="editor container">
-    <p class='title' style='color: white;'>Editing Game</p>
+    <p :style='`color: ${activeColor};`'>Editing Game</p>
     
     
     
     <div class="columns">
         <div class="column">
-            <b-button class='is-primary mb-6' @click='playing = !playing' style='min-width: 100%'>
+            <b-button class='mb-6' @click='playing = !playing' style='min-width: 100%' :style='`background: ${activeColor};`'>
                 <p v-if='playing'>Edit Game</p>
                 <p v-else>Play Game</p>
             </b-button>
             <b-button 
-                v-for='tileType in testTypes'
+                v-for='tileType in tileTypes'
                 :key='tileType.id'
                 class='px-4 mb-4'
                 :class='{"button-active" : selectedTileType == tileType}'
                 style='min-width: 100%'
                 @click='selectedTileType = tileType'
+                :style="cssVars"
             >
                 {{tileType}}
             </b-button>
@@ -46,23 +47,20 @@ export default {
     TileGrid
   },
   computed: {
-    ...mapGetters({
-      testTypes: 'tileTypes'
-    })
+    ...mapGetters([
+      'tileTypes',
+      'activeColor'
+    ]),
+    cssVars() {
+      return {
+        '--color': this.activeColor
+      }
+    }
   },
   data () {
     return {
         playing: false,
         selectedTileType: 'default',
-        tileTypes: [
-            'default',
-            'toggle-up',
-            'toggle-down',
-            'toggle-right',
-            'toggle-left',
-            'disabled',
-            'invisible'
-        ],
         levelData: 'hello everybody!'
     }
   },
@@ -88,6 +86,6 @@ export default {
 <style lang="scss" scoped>
 .button-active {
     color: white;
-    background: #7957d5;
+    background: var(--color)
 }
 </style>
