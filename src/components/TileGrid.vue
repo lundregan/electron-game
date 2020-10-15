@@ -1,6 +1,6 @@
 <template>
 <div class="tile-grid">
-    <div class="gtiles" style='display: flex; flex-direction: column;'>
+    <div class="gtiles" style='display: flex; flex-direction: column;' :key='rerenderInt'>
         <div class="rows" v-for='x in currentTileBoard.size' :key='x.id' style='display: flex;'>
             <div class='game-tile'
                 v-for='y in currentTileBoard.size'
@@ -58,11 +58,16 @@ export default {
     const unsubscribe = this.$store.subscribe((mutation, state) => {
       if(mutation.type == 'TOGGLE_TILE'){
         this.tileToggleAnimation(mutation.payload)
+      }else if(
+        mutation.type == 'RESTART_LEVEL'
+      ){
+        this.rerenderInt += 1
       }
     })
   },
   data () {
     return {
+      rerenderInt: 0,
       typeIcons: {
         'default': 'none',
         'toggle-up': 'arrow-up-thick',

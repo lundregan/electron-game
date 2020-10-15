@@ -17,7 +17,15 @@
             :playingGame=true
           ></TileGrid>
         </div>
-        <div class="column"></div>
+        <div class="column">
+          <b-button
+            @click='restartLevel()'
+          >
+            <b-icon
+              icon='restart'
+            ></b-icon>
+          </b-button>
+        </div>
     </div>
   </section>
 </template>
@@ -40,11 +48,14 @@ export default {
   },
   data () {
     return {
-      
+
     }
   },
   methods: {
-    
+    restartLevel: function () {
+      console.log('restarting level')
+      this.$store.dispatch('restartLevel')
+    }
   }
 }
 </script>

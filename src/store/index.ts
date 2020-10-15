@@ -12,6 +12,7 @@ export default new Vuex.Store({
     currentTileBoard: new TileBoard(10),
     currentMoves: 0,
     currentLevelName: null,
+    currentLevel: null,
     tileTypes: new TileTypes(),
     themes: new Themes(),
     currentTheme: null,
@@ -66,6 +67,9 @@ export default new Vuex.Store({
     LOAD_LEVEL(state, board){
       state.currentTileBoard.loadLevel(board)
     },
+    RESTART_LEVEL(state){
+      state.currentTileBoard.loadLevel(state.currentLevel)
+    },
     TOGGLE_TILE(state, cords){
       state.currentTileBoard.toggleTile(cords[0], cords[1])
     },
@@ -86,6 +90,9 @@ export default new Vuex.Store({
     },
     SET_CURRENT_LEVEL_NAME(state, levelName){
       state.currentLevelName = levelName
+    },
+    SET_CURRENT_LEVEL(state, level){
+      state.currentLevel = level
     }
   },
   actions: {
@@ -93,7 +100,12 @@ export default new Vuex.Store({
       context.commit('SET_TILEBOARD', new TileBoard(size))
     },
     loadLevel(context, level){
+      context.commit('SET_CURRENT_LEVEL', level)
       context.commit('LOAD_LEVEL', level)     
+    },
+    restartLevel(context){
+      context.commit('RESTART_LEVEL')
+      context.commit('RESET_MOVES')
     },
     toggleTile(context, cords){
       //context.commit('INCREMENT_MOVES')
