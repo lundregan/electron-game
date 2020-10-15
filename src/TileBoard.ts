@@ -1,5 +1,10 @@
-import { Tile } from './Tile'
 import store from './store/index'
+
+import { Tile } from './data/Tiles/Tile'
+import { Default } from './data/Tiles/Default'
+import { SingleDirection } from './data/Tiles/SingleDirection'
+import { Disabled } from './data/Tiles/Disabled'
+import { Invisible } from './data/Tiles/Invisible'
 
 export class TileBoard {
     size: number
@@ -18,7 +23,7 @@ export class TileBoard {
   
         for(let j = 0; j < this.size; j++){
           columnArray.push(
-            new Tile('default', false, i, j)
+            new Default(false, i, j)
           );
         }
   
@@ -36,33 +41,34 @@ export class TileBoard {
     }
     toggleTile(x: number, y: number) {
         if(!this.outOfBounds(x, y)){
-            const tile = this.board[x][y]
+            this.board[x][y].toggle()
+            //const tile = this.board[x][y]
 
-            if(tile.type != 'disabled'){
-                const tileType = tile.getType()
+            // if(tile.type != 'disabled'){
+            //     const tileType = tile.getType()
                 
-                switch(tileType){
-                case 'toggle-up':
-                    tile.toggleActive()
-                    this.ToggleTileLater([x-1,y])
-                    break
-                case 'toggle-down':
-                    tile.toggleActive()
-                    this.ToggleTileLater([x+1,y])
-                    break
-                case 'toggle-right':
-                    tile.toggleActive()
-                    this.ToggleTileLater([x,y+1])
-                    break
-                case 'toggle-left':
-                    tile.toggleActive()
-                    this.ToggleTileLater([x,y-1])
-                    break
-                default:
-                    tile.toggleActive()
-                    break
-                }   
-            }
+            //     switch(tileType){
+            //     case 'toggle-up':
+            //         tile.toggleActive()
+            //         this.ToggleTileLater([x-1,y])
+            //         break
+            //     case 'toggle-down':
+            //         tile.toggleActive()
+            //         this.ToggleTileLater([x+1,y])
+            //         break
+            //     case 'toggle-right':
+            //         tile.toggleActive()
+            //         this.ToggleTileLater([x,y+1])
+            //         break
+            //     case 'toggle-left':
+            //         tile.toggleActive()
+            //         this.ToggleTileLater([x,y-1])
+            //         break
+            //     default:
+            //         tile.toggleActive()
+            //         break
+            //     }   
+            // }
         }
     }
     outOfBounds(x: number, y: number){
@@ -101,6 +107,24 @@ export class TileBoard {
         this.board = loadedTileGrid;
     }
     setTileType(x: number, y: number, type: string){
-        this.board[x][y].type = type
+        this.board[x][y] = this.getTileClassObject(type, x, y)
+    }
+    getTileClassObject(type: string, x: number, y: number){
+        switch(type){
+            case 'toggle-left':
+                return new SingleDirection(false, x, y, 'toggle-left')
+            case 'toggle-right':
+                return new SingleDirection(false, x, y, 'toggle-right')
+            case 'toggle-up':
+                return new SingleDirection(false, x, y, 'toggle-up')
+            case 'toggle-down':
+                return new SingleDirection(false, x, y, 'toggle-down')
+            case 'disabled':
+                return new Disabled(x, y)
+            case 'invisible':
+                return new Invisible(x, y)
+            default:
+                return new Default(false, x, y)
+        }
     }
 }

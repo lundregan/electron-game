@@ -56,11 +56,11 @@ export default {
     // On unmount needs to be destroyed?
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const unsubscribe = this.$store.subscribe((mutation, state) => {
-      if(mutation.type == 'TOGGLE_TILE'){
+      if( mutation.type == 'TOGGLE_TILE' ){
         this.tileToggleAnimation(mutation.payload)
-      }else if(
-        mutation.type == 'RESTART_LEVEL'
-      ){
+      }
+      
+      if( mutation.type == 'RESTART_LEVEL' ){
         this.rerenderInt += 1
       }
     })
