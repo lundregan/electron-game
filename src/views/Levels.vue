@@ -35,8 +35,9 @@ export default {
     methods: {
         loadLevel: function (level) {
             console.log('loading level')
-            console.log(level.JSON)
+            console.log(`Level: ${level.name}`)
             this.$store.dispatch('loadLevel', level.JSON.data).then(
+                this.$store.dispatch('changeCurrentLevelName', level.name),
                 this.$router.push('Game')
             )
         }

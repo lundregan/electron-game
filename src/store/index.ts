@@ -11,6 +11,7 @@ export default new Vuex.Store({
   state: {
     currentTileBoard: new TileBoard(10),
     currentMoves: 0,
+    currentLevelName: null,
     tileTypes: new TileTypes(),
     themes: new Themes(),
     currentTheme: null,
@@ -53,6 +54,9 @@ export default new Vuex.Store({
     },
     activeColor: state => {
       return state.activeColor
+    },
+    currentLevelName: state => {
+      return state.currentLevelName
     }
   },
   mutations: {
@@ -79,6 +83,9 @@ export default new Vuex.Store({
     },
     SET_ACTIVE_COLOR(state, color){
       state.activeColor = color
+    },
+    SET_CURRENT_LEVEL_NAME(state, levelName){
+      state.currentLevelName = levelName
     }
   },
   actions: {
@@ -86,9 +93,6 @@ export default new Vuex.Store({
       context.commit('SET_TILEBOARD', new TileBoard(size))
     },
     loadLevel(context, level){
-      console.log('action loadlevel')
-      console.log(level)
-      //const levelData = JSON.parse(level)
       context.commit('LOAD_LEVEL', level)     
     },
     toggleTile(context, cords){
@@ -109,6 +113,9 @@ export default new Vuex.Store({
     },
     setActiveColor(context, color){
       context.commit('SET_ACTIVE_COLOR', color)
+    },
+    changeCurrentLevelName(context, levelName){
+      context.commit('SET_CURRENT_LEVEL_NAME', levelName)
     }
   },
   modules: {
