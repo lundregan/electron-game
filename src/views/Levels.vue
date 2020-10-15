@@ -9,7 +9,7 @@
         @click='loadLevel(level)'
         :style='`background: ${activeColor};`'
     >
-        {{level.name}}
+        {{level.id}}
     </b-button>
   </div>
 </template>
