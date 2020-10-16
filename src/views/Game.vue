@@ -1,5 +1,5 @@
 <template>
-  <section class="game container">
+  <section class="game container row content">
     <p :style='`color: ${activeColor};`'>Playing Game</p>
     <div class="columns">
         <div class="column">
