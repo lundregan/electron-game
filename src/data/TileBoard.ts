@@ -1,10 +1,10 @@
-import store from './store/index'
+import store from '../store/index'
 
-import { Tile } from './data/Tiles/Tile'
-import { Default } from './data/Tiles/Default'
-import { SingleDirection } from './data/Tiles/SingleDirection'
-import { Disabled } from './data/Tiles/Disabled'
-import { Invisible } from './data/Tiles/Invisible'
+import { Tile } from './Tiles/Tile'
+import { Default } from './Tiles/Default'
+import { SingleDirection } from './Tiles/SingleDirection'
+import { Disabled } from './Tiles/Disabled'
+import { Invisible } from './Tiles/Invisible'
 
 export class TileBoard {
     size: number

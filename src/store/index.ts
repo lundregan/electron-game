@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex, { mapGetters } from 'vuex'
 
-import { TileBoard } from '../TileBoard'
+import { TileBoard } from '../data/TileBoard'
 import { TileTypes } from '../data/TileTypes'
 import { Theme, Themes } from '../data/Themes'
 
