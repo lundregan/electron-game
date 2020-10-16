@@ -42,41 +42,14 @@ export class TileBoard {
     toggleTile(x: number, y: number) {
         if(!this.outOfBounds(x, y)){
             this.board[x][y].toggle()
-            //const tile = this.board[x][y]
-
-            // if(tile.type != 'disabled'){
-            //     const tileType = tile.getType()
-                
-            //     switch(tileType){
-            //     case 'toggle-up':
-            //         tile.toggleActive()
-            //         this.ToggleTileLater([x-1,y])
-            //         break
-            //     case 'toggle-down':
-            //         tile.toggleActive()
-            //         this.ToggleTileLater([x+1,y])
-            //         break
-            //     case 'toggle-right':
-            //         tile.toggleActive()
-            //         this.ToggleTileLater([x,y+1])
-            //         break
-            //     case 'toggle-left':
-            //         tile.toggleActive()
-            //         this.ToggleTileLater([x,y-1])
-            //         break
-            //     default:
-            //         tile.toggleActive()
-            //         break
-            //     }   
-            // }
         }
     }
     outOfBounds(x: number, y: number){
         if(
             x < 0 ||
             y < 0 ||
-            x > this.size ||
-            y > this.size
+            x > this.size -1 ||
+            y > this.size -1
         ){
             return true
         }
