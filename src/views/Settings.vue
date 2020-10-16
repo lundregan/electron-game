@@ -17,7 +17,7 @@
               </option>
             </b-select>
           </b-field>
-          <b-field>
+          <b-field style='display: flex; justify-content: center;'>
             <div
               class='mx-2'
               v-for='color in currentTheme.colors'
