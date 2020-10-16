@@ -16,8 +16,7 @@ export default new Vuex.Store({
     tileTypes: new TileTypes(),
     themes: new Themes(),
     currentTheme: null,
-    activeColor: '#3a86ff',
-    rerenderInt: 0
+    activeColor: '#3a86ff'
   },
   getters: {
     currentTileBoard: state => {
@@ -76,7 +75,6 @@ export default new Vuex.Store({
     },
     SET_TILE_TYPE(state, payload){
       state.currentTileBoard.setTileType(payload.x, payload.y, payload.type)
-      state.rerenderInt += 1
     },
     INCREMENT_MOVES(state, value){
       state.currentMoves += value
@@ -110,11 +108,8 @@ export default new Vuex.Store({
       context.commit('RESET_MOVES')
     },
     toggleTile(context, cords){
-      //context.commit('INCREMENT_MOVES')
       if(
         !this.state.currentTileBoard.outOfBounds(cords[0], cords[1])
-        // (cords[0] >= 0 && cords[1] >= 0) &&
-        // (cords[0] <= this.state.currentTileBoard.size && cords[1] <= this.state.currentTileBoard.size)
         ){
         context.commit('TOGGLE_TILE', cords)
       }

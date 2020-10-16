@@ -58,6 +58,7 @@ export default {
     const unsubscribe = this.$store.subscribe((mutation, state) => {
       if( mutation.type == 'TOGGLE_TILE' ){
         this.tileToggleAnimation(mutation.payload)
+        this.rerenderInt =+ 1
       }
       
       if( mutation.type == 'RESTART_LEVEL' ){
@@ -95,6 +96,8 @@ export default {
         }
         this.$store.dispatch('changeTileType', payload)
       }
+
+      this.rerenderInt += 1
     },
     tileToggleAnimation: function (payload) {
       const x = payload[0]
