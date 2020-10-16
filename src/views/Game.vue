@@ -1,6 +1,6 @@
 <template>
   <section class="game container">
-    <p :style='`background: ${activeColor};`'>Playing Game</p>
+    <p :style='`color: ${activeColor};`'>Playing Game</p>
     <div class="columns">
         <div class="column">
           <div>
@@ -43,7 +43,8 @@ export default {
     ...mapGetters([
       'currentTileBoardCompleted',
       'currentMoves',
-      'currentLevelName'
+      'currentLevelName',
+      'activeColor'
     ])
   },
   data () {
