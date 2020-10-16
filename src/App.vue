@@ -42,9 +42,6 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  mounted () {
-    this.$store.dispatch('changeTheme', 'default')
-  },
   computed: {
     ...mapGetters([
       'activeColor'

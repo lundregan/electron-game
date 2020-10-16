@@ -6,28 +6,18 @@
       
       <div class="columns">
         <div class="column">
-          <b-field label="Theme">
-            <b-select v-model='chosenTheme'>
-              <option
-                v-for="theme in themes"
-                :value="theme.name"
-                :key="theme.id"
-              >
-                {{ theme.name }}
-              </option>
-            </b-select>
-          </b-field>
-          <b-field style='display: flex; justify-content: center;'>
+          <p :style='`color: ${activeColor};`'>Theme Color</p>
+          <div style='display: flex; justify-content: center; flex-wrap: wrap;'>
             <div
-              class='mx-2'
-              v-for='color in currentTheme.colors'
+              class='mx-4'
+              v-for='color in theme.getColors()'
               :key='color.id'
               style='width: 50px; height:50px;'
               :style='` background: ${color}`'
               @click='changeColor(color)'
             >
             </div>
-          </b-field>
+          </div>
           <b-field label="Color Blind Mode">
             <b-select :placeholder="colorBlindModes[0]" disabled>
               <option
@@ -50,30 +40,24 @@ import { mapGetters } from 'vuex'
 export default {
 data () {
   return {
-    chosenTheme: 'pastel',
     colorBlindModes: [
-      'Off'
+      'Off',
+      'On'
     ]
   }
 },
 computed: {
   ...mapGetters([
-    'currentTheme',
-    'themes',
+    'theme',
     'activeColor'
   ])
-},
-watch: {
-  chosenTheme: function(val){
-    this.$store.dispatch('changeTheme', val)
-  }
 },
 mounted () {
   console.log(this.themes)
 },
 methods: {
   changeColor: function(color) {
-    this.$store.dispatch('setActiveColor', color)
+    this.$store.dispatch('changeColor', color)
   }
 }
 }

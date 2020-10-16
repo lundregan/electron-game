@@ -3,7 +3,7 @@ import Vuex, { mapGetters } from 'vuex'
 
 import { TileBoard } from '../data/TileBoard'
 import { TileTypes } from '../data/TileTypes'
-import { Theme, Themes } from '../data/Themes'
+import { Theme } from '../data/Theme'
 
 Vue.use(Vuex)
 
@@ -14,8 +14,7 @@ export default new Vuex.Store({
     currentLevelName: null,
     currentLevel: null,
     tileTypes: new TileTypes(),
-    themes: new Themes(),
-    currentTheme: null,
+    theme: new Theme(),
     activeColor: '#3a86ff'
   },
   getters: {
@@ -47,14 +46,14 @@ export default new Vuex.Store({
     tileTypes: state => {
       return state.tileTypes.getTypes()
     },
-    themes: state => {
-      return state.themes
+    theme: state => {
+      return state.theme
     },
-    currentTheme: state => {
-      return state.currentTheme
+    themeColors: state => {
+      return state.theme.getColors()
     },
     activeColor: state => {
-      return state.activeColor
+      return state.theme.getCurrentColor()
     },
     currentLevelName: state => {
       return state.currentLevelName
@@ -82,8 +81,8 @@ export default new Vuex.Store({
     RESET_MOVES(state){
       state.currentMoves = 0
     },
-    SET_THEME(state, themeName){
-      state.currentTheme = state.themes[themeName]
+    SET_THEME_COLOR(state, color){
+      state.theme.setCurrentColor(color)
     },
     SET_ACTIVE_COLOR(state, color){
       state.activeColor = color
@@ -110,7 +109,7 @@ export default new Vuex.Store({
     toggleTile(context, cords){
       if(
         !this.state.currentTileBoard.outOfBounds(cords[0], cords[1])
-        ){
+      ){
         context.commit('TOGGLE_TILE', cords)
       }
     },
@@ -123,14 +122,14 @@ export default new Vuex.Store({
     gameMounted(context){
       context.commit('RESET_MOVES')
     },
-    changeTheme(context, themeName){
-      context.commit('SET_THEME', themeName)
-    },
     setActiveColor(context, color){
       context.commit('SET_ACTIVE_COLOR', color)
     },
     changeCurrentLevelName(context, levelName){
       context.commit('SET_CURRENT_LEVEL_NAME', levelName)
+    },
+    changeColor(context, color){
+      context.commit('SET_THEME_COLOR', color)
     }
   },
   modules: {
