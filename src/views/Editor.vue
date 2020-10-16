@@ -64,7 +64,7 @@ export default {
         levelData: 'hello everybody!'
     }
   },
-  mounted () {
+  created () {
     this.$store.dispatch('generateNewTileBoard', 10)
   },
   methods: {
