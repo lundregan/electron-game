@@ -69,8 +69,12 @@ export class TileBoard {
                     type: level.board[i][j].type,
                     active: level.board[i][j].active
                 }
+
+                const newTileObject = this.getTileClassObject(newTile.type, newTile.x, newTile.y)
+
                 columnArray.push(
-                    new Tile(newTile.type, newTile.active, newTile.x, newTile.y)
+                    //new Tile(newTile.type, newTile.active, newTile.x, newTile.y)
+                    newTileObject
                 );
             }
     
