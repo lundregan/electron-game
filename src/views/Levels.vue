@@ -3,43 +3,37 @@
     <p :style='`color: ${activeColor};`'>Levels</p>
 
     <b-button 
-        v-for='level in gameLevels' 
+        v-for='level in levels.levels' 
         :key='level.id'
         class='is-primary mx-1 px-5'
-        @click='loadLevel(level)'
+        @click='loadLevel(level.getID())'
         :style='`background: ${activeColor};`'
     >
-        {{level.id}}
+        {{level.getName()}}
     </b-button>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import levels from '../data/levels/levels'
 
 export default {
     computed: {
         ...mapGetters([
-            'activeColor'
+            'activeColor',
+            'levels'
         ])
-    },
-    mounted () {
-        console.log(levels.name)
     },
     data () {
         return {
-            gameLevels: levels.levels
         }
     },
     methods: {
-        loadLevel: function (level) {
-            console.log('loading level')
-            console.log(`Level: ${level.name}`)
-            this.$store.dispatch('loadLevel', level.JSON.data).then(
-                this.$store.dispatch('changeCurrentLevelName', level.name),
+        loadLevel: function (id) {
+            this.$store.dispatch('loadLevel', id)
+            .then(() => {
                 this.$router.push('Game')
-            )
+            })
         }
     }
 }
