@@ -57,7 +57,7 @@ mounted () {
 },
 methods: {
   changeColor: function(color) {
-    this.$store.dispatch('changeColor', color)
+    this.$store.dispatch('changeThemeColor', color)
   }
 }
 }

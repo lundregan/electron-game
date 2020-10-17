@@ -9,24 +9,53 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    currentTileBoard: new TileBoard(10),
-    currentMoves: 0,
-    currentLevelName: null,
-    currentLevel: null,
+    
+    tileBoard: new TileBoard(10),
+    moves: 0,
+    levelName: null,
+    level: null,
     tileTypes: new TileTypes(),
     theme: new Theme(),
-    activeColor: '#3a86ff'
+  
   },
+
+
   getters: {
-    currentTileBoard: state => {
-      return state.currentTileBoard
+    
+    tileBoard: state => {
+      return state.tileBoard
     },
+
+    moves: state => {
+      return state.moves
+    },
+
+    levelName: state => {
+      return state.levelName
+    },
+
+    level: state => {
+      return state.level
+    },
+
+    tileTypes: state => {
+      return state.tileTypes.getTypes()
+    },
+
+    theme: state => {
+      return state.theme
+    },
+
+    activeColor: state => {
+      return state.theme.getCurrentColor()
+    },
+
     currentTileBoardCompleted: state => {
       let win = true;
       
-      for(let i = 0; i < state.currentTileBoard.board.length; i++){
-        for (let j = 0; j < state.currentTileBoard.board[i].length; j++) {
-          const currentTile = state.currentTileBoard.board[i][j]
+      for(let i = 0; i < state.tileBoard.board.length; i++){
+        for (let j = 0; j < state.tileBoard.board[i].length; j++) {
+          const currentTile = state.tileBoard.board[i][j]
           
           if(
             currentTile.type != 'disabled' &&
@@ -39,99 +68,105 @@ export default new Vuex.Store({
       }
 
       return win
-    },
-    currentMoves: state => {
-      return state.currentMoves
-    },
-    tileTypes: state => {
-      return state.tileTypes.getTypes()
-    },
-    theme: state => {
-      return state.theme
-    },
-    themeColors: state => {
-      return state.theme.getColors()
-    },
-    activeColor: state => {
-      return state.theme.getCurrentColor()
-    },
-    currentLevelName: state => {
-      return state.currentLevelName
     }
+
   },
+
+
   mutations: {
-    SET_TILEBOARD(state, tileBoard: TileBoard){
-      state.currentTileBoard = tileBoard
+    
+    SET_TILEBOARD (state, tileBoard: TileBoard){
+      state.tileBoard = tileBoard
     },
-    LOAD_LEVEL(state, board){
-      state.currentTileBoard.loadLevel(board)
+    
+    LOAD_LEVEL (state, board){
+      state.tileBoard.loadLevel(board)
     },
-    RESTART_LEVEL(state){
-      state.currentTileBoard.loadLevel(state.currentLevel)
+    
+    RESTART_LEVEL (state){
+      state.tileBoard.loadLevel(state.level)
     },
-    TOGGLE_TILE(state, cords){
-      state.currentTileBoard.toggleTile(cords[0], cords[1])
+    
+    TOGGLE_TILE (state, cords){
+      state.tileBoard.toggleTile(cords[0], cords[1])
     },
-    SET_TILE_TYPE(state, payload){
-      state.currentTileBoard.setTileType(payload.x, payload.y, payload.type)
+    
+    SET_TILE_TYPE (state, payload){
+      state.tileBoard.setTileType(payload.x, payload.y, payload.type)
     },
-    INCREMENT_MOVES(state, value){
-      state.currentMoves += value
+    
+    INCREMENT_MOVES (state, value){
+      state.moves += value
     },
-    RESET_MOVES(state){
-      state.currentMoves = 0
+    
+    RESET_MOVES (state){
+      state.moves = 0
     },
-    SET_THEME_COLOR(state, color){
+    
+    SET_THEME_COLOR (state, color){
       state.theme.setCurrentColor(color)
     },
-    SET_ACTIVE_COLOR(state, color){
-      state.activeColor = color
+    
+    SET_CURRENT_LEVEL_NAME (state, levelName){
+      state.levelName = levelName
     },
-    SET_CURRENT_LEVEL_NAME(state, levelName){
-      state.currentLevelName = levelName
-    },
-    SET_CURRENT_LEVEL(state, level){
-      state.currentLevel = level
+    
+    SET_CURRENT_LEVEL (state, level){
+      state.level = level
     }
+
   },
+
+
   actions: {
-    generateNewTileBoard(context, size: number){
+    
+    generateNewTileBoard (context, size: number){
       context.commit('SET_TILEBOARD', new TileBoard(size))
     },
-    loadLevel(context, level){
+    
+    loadLevel (context, level){
       context.commit('SET_CURRENT_LEVEL', level)
       context.commit('LOAD_LEVEL', level)     
+      context.commit('RESET_MOVES')
     },
-    restartLevel(context){
+    
+    restartLevel (context){
       context.commit('RESTART_LEVEL')
       context.commit('RESET_MOVES')
     },
-    toggleTile(context, cords){
+    
+    toggleTile (context, cords){
       if(
-        !this.state.currentTileBoard.outOfBounds(cords[0], cords[1])
+        !this.state.tileBoard.outOfBounds(cords[0], cords[1])
       ){
         context.commit('TOGGLE_TILE', cords)
       }
     },
-    changeTileType(context, payload) {
+    
+    changeTileType (context, payload) {
       context.commit('SET_TILE_TYPE', payload)
     },
-    tileClicked(context, value) {
+    
+    tileClicked (context, value) {
       context.commit('INCREMENT_MOVES', value)
     },
-    gameMounted(context){
-      context.commit('RESET_MOVES')
-    },
-    setActiveColor(context, color){
-      context.commit('SET_ACTIVE_COLOR', color)
-    },
-    changeCurrentLevelName(context, levelName){
+    
+    // gameMounted (context){
+    //   context.commit('RESET_MOVES')
+    // },
+    
+    changeCurrentLevelName (context, levelName){
       context.commit('SET_CURRENT_LEVEL_NAME', levelName)
     },
-    changeColor(context, color){
+    
+    changeThemeColor (context, color){
       context.commit('SET_THEME_COLOR', color)
     }
   },
+
+
   modules: {
+    // No Modules Yet
   }
+
 })

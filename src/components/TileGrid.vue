@@ -1,22 +1,22 @@
 <template>
 <div class="tile-grid">
     <div class="gtiles" style='display: flex; flex-direction: column;' :key='rerenderInt'>
-        <div class="rows" v-for='x in currentTileBoard.size' :key='x.id' style='display: flex;'>
+        <div class="rows" v-for='x in tileBoard.size' :key='x.id' style='display: flex;'>
             <div class='game-tile'
-                v-for='y in currentTileBoard.size'
+                v-for='y in tileBoard.size'
                 :key='y.id'
                 :id='"tile-" + x + "-" + y'
                 :class='{
-                    "tile-active" : currentTileBoard.board[x-1][y-1].active ,
-                    "tile-inactive" : !currentTileBoard.board[x-1][y-1].active,
-                    "tile-disabled" : currentTileBoard.board[x-1][y-1].type === "disabled",
-                    "tile-invisible" : currentTileBoard.board[x-1][y-1].type === "invisible"
+                    "tile-active" : tileBoard.board[x-1][y-1].active ,
+                    "tile-inactive" : !tileBoard.board[x-1][y-1].active,
+                    "tile-disabled" : tileBoard.board[x-1][y-1].type === "disabled",
+                    "tile-invisible" : tileBoard.board[x-1][y-1].type === "invisible"
                 }'
                 @click='tileClicked(x-1, y-1)'
             >
-                <span v-if='currentTileBoard.board[x-1][y-1]'>
-                    <b-icon :icon='typeIcons[currentTileBoard.board[x-1][y-1].type]' size='is-large'></b-icon>
-                    <p class='tile-type-text' v-if='!playingGame'>{{currentTileBoard.board[x-1][y-1].type}}</p>
+                <span v-if='tileBoard.board[x-1][y-1]'>
+                    <b-icon :icon='typeIcons[tileBoard.board[x-1][y-1].type]' size='is-large'></b-icon>
+                    <p class='tile-type-text' v-if='!playingGame'>{{tileBoard.board[x-1][y-1].type}}</p>
                 </span>
             </div>
         </div>
@@ -36,13 +36,11 @@ export default {
   ],
   computed: {
     ...mapGetters([
-      'currentTileBoard',
+      'tileBoard',
       'activeColor'
     ])
   },
   mounted () {
-    this.$store.dispatch('gameMounted')
-
     anime({
       targets: 'div .game-tile',
       left: '240px',
@@ -84,7 +82,7 @@ export default {
     },
     tileClicked: function (x, y) { 
       if(this.playingGame){
-        if(this.currentTileBoard.board[x][y].type != ('disabled' && 'invisible')){
+        if(this.tileBoard.board[x][y].type != ('disabled' && 'invisible')){
           this.$store.dispatch('tileClicked', 1)
           this.$store.dispatch('toggleTile', [x, y])
         }
@@ -103,7 +101,7 @@ export default {
       const x = payload[0]
       const y = payload[1]
 
-      const color = this.currentTileBoard.board[x][y].active ? this.activeColor : '#414141'
+      const color = this.tileBoard.board[x][y].active ? this.activeColor : '#414141'
 
       anime.timeline({
         easing: 'easeOutExpo',

@@ -4,12 +4,12 @@
     <div class="columns">
         <div class="column">
           <div>
-            <p>{{currentLevelName}}</p>
+            <p>{{levelName}}</p>
             <p v-if='currentTileBoardCompleted'>Complete</p>
             <p v-else>Incomplete</p>
           </div>
           <div>
-            <p>Moves: {{currentMoves}}</p>
+            <p>Moves: {{moves}}</p>
           </div>
         </div>
         <div class="column">
@@ -42,8 +42,8 @@ export default {
   computed: {
     ...mapGetters([
       'currentTileBoardCompleted',
-      'currentMoves',
-      'currentLevelName',
+      'moves',
+      'levelName',
       'activeColor'
     ])
   },
