@@ -100,7 +100,7 @@ export default {
       }
       
       //rerender for editor
-      this.rerenderInt += 1
+      //this.rerenderInt += 1
     },
     tileToggleAnimation: function (payload) {
       const x = payload[0]

@@ -38,7 +38,10 @@ export class SingleDirection extends Tile {
             default:
                 break
         }
-
-        Store.dispatch('toggleTile', cords)
+        
+        setTimeout(() => {
+            Store.dispatch('toggleTile', cords)
+        }, 100)
+        
     }
 }
