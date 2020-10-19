@@ -53,7 +53,7 @@ export default new Vuex.Store({
       return state.theme.getCurrentColor()
     },
 
-    currentTileBoardCompleted: state => {
+    isLevelComplete: state => {
       let win = true;
       
       for(let i = 0; i < state.level.getTileBoard().board.length; i++){
