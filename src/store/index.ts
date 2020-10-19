@@ -11,15 +11,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    
-    //tileBoard: new TileBoard(10),
+  
     moves: 0,
-    //levelName: null,
-    //level: null,
     tileTypes: new TileTypes(),
     theme: new Theme(),
     levels: new Levels(),
     level: new Level(0, 'testLevel', new TileBoard(10))
+    
   },
 
 

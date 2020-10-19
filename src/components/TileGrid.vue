@@ -7,8 +7,6 @@
                 :key='y.id'
                 :id='"tile-" + x + "-" + y'
                 :class='{
-                    "tile-active" : tileBoard.board[x-1][y-1].active ,
-                    "tile-inactive" : !tileBoard.board[x-1][y-1].active,
                     "tile-disabled" : tileBoard.board[x-1][y-1].type === "disabled",
                     "tile-invisible" : tileBoard.board[x-1][y-1].type === "invisible"
                 }'
@@ -48,12 +46,13 @@ export default {
       direction: 'reverse',
       backgroundColor: '#313131',
       borderRadius: ['0%', '50%'],
-      easing: 'easeInOutQuad'
+      easing: 'easeInOutQuad',
+      unsubscribe: null
     })
 
     // On unmount needs to be destroyed?
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const unsubscribe = this.$store.subscribe((mutation, state) => {
+    this.unsubscribe = this.$store.subscribe((mutation, state) => {
       if( mutation.type == 'TOGGLE_TILE' ){
         this.tileToggleAnimation(mutation.payload)
         this.rerenderInt =+ 1
@@ -64,9 +63,12 @@ export default {
       }
     })
   },
+  beforeDestroy () {
+    this.unsubscribe()
+  },
   data () {
     return {
-      rerenderInt: 0,
+      rerenderInt: 1,
       typeIcons: {
         'default': 'none',
         'toggle-up': 'arrow-up-thick',
@@ -94,7 +96,8 @@ export default {
         }
         this.$store.dispatch('changeTileType', payload)
       }
-
+      
+      //rerender for editor
       this.rerenderInt += 1
     },
     tileToggleAnimation: function (payload) {
@@ -121,7 +124,6 @@ export default {
         direction: 'reverse',
         easing: 'easeOutQuint'
       })
-      
     }
   }
 }
