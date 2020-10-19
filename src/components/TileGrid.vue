@@ -62,6 +62,8 @@ export default {
         this.rerenderInt += 1
       }
     })
+
+    this.rerenderInt += 1
   },
   beforeDestroy () {
     this.unsubscribe()
