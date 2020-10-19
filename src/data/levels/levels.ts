@@ -1,8 +1,10 @@
 import { Module } from 'vuex'
 import { Level } from '../Level'
+import { TileBoard } from '../TileBoard'
+
 import * as level0 from '../levels/level0'
 import * as level1 from '../levels/level1'
-import { TileBoard } from '../TileBoard'
+import * as level2 from '../levels/level2'
 
 export class Levels {
     levels: Array<Level>
@@ -10,7 +12,8 @@ export class Levels {
     constructor () {
         this.levels = [
             new Level(0, 'simple', this.jsonToTileBoard(level0.data)),
-            new Level(1, 'Yoyo', this.jsonToTileBoard(level1.data))
+            new Level(1, 'Yoyo', this.jsonToTileBoard(level1.data)),
+            new Level(2, 'Around and around', this.jsonToTileBoard(level2.data))
         ]
     }
 
