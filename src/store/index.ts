@@ -133,6 +133,7 @@ export default new Vuex.Store({
     
     loadLevel (context, id){
       context.commit('LOAD_LEVEL', id)
+      context.commit('RESET_MOVES')
     },
     
     restartLevel (context){
