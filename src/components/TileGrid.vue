@@ -76,7 +76,11 @@ export default {
         'toggle-up': 'arrow-up-thick',
         'toggle-right': 'arrow-right-thick',
         'toggle-down': 'arrow-down-thick',
-        'toggle-left': 'arrow-left-thick'
+        'toggle-left': 'arrow-left-thick',
+        'right': 'arrow-collapse-right',
+        'left': 'arrow-collapse-left',
+        'down': 'arrow-collapse-down',
+        'up': 'arrow-collapse-up'
       } 
     }
   },
@@ -99,8 +103,10 @@ export default {
         this.$store.dispatch('changeTileType', payload)
       }
       
-      //rerender for editor
-      //this.rerenderInt += 1
+      //rerender for editor      
+      if(!this.playingGame){
+        this.rerenderInt += 1
+      }
     },
     tileToggleAnimation: function (payload) {
       const x = payload[0]

@@ -5,6 +5,7 @@ import { Default } from './Tiles/Default'
 import { SingleDirection } from './Tiles/SingleDirection'
 import { Disabled } from './Tiles/Disabled'
 import { Invisible } from './Tiles/Invisible'
+import { SingleLineDirection } from './Tiles/SingleLineDirection'
 
 export class TileBoard {
     size: number
@@ -96,6 +97,14 @@ export class TileBoard {
                 return new SingleDirection(false, x, y, 'toggle-up')
             case 'toggle-down':
                 return new SingleDirection(false, x, y, 'toggle-down')
+            case 'singleLineDirection-up':
+                return new SingleLineDirection(false, x, y, 'up')    
+            case 'singleLineDirection-down':
+                return new SingleLineDirection(false, x, y, 'down')  
+            case 'singleLineDirection-left':
+                return new SingleLineDirection(false, x, y, 'left')    
+            case 'singleLineDirection-right':
+                return new SingleLineDirection(false, x, y, 'right')
             case 'disabled':
                 return new Disabled(x, y)
             case 'invisible':
