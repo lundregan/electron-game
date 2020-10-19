@@ -2,7 +2,7 @@
   <section class="game container row content">
     <p :style='`color: ${activeColor};`'>Playing Game</p>
     <div class="columns">
-        <div class="column">
+        <div class="column info-column">
           <div>
             <p>{{levelName}}</p>
             <p v-if='isLevelComplete'>Complete</p>
@@ -17,7 +17,7 @@
             :playingGame=true
           ></TileGrid>
         </div>
-        <div class="column">
+        <div class="column options-column">
           <b-button
             @click='restartLevel()'
           >
@@ -63,5 +63,7 @@ export default {
 
 
 <style lang="scss" scoped>
-
+.info-column, .options-column {
+  min-width: 100px; 
+}
 </style>
