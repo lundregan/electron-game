@@ -5,6 +5,7 @@ import { TileBoard } from '../TileBoard'
 import * as level0 from '../levels/level0'
 import * as level1 from '../levels/level1'
 import * as level2 from '../levels/level2'
+import * as level3 from '../levels/level3'
 
 export class Levels {
     levels: Array<Level>
@@ -13,7 +14,8 @@ export class Levels {
         this.levels = [
             new Level(0, 'simple', this.jsonToTileBoard(level0.data)),
             new Level(1, 'Yoyo', this.jsonToTileBoard(level1.data)),
-            new Level(2, 'Around and around', this.jsonToTileBoard(level2.data))
+            new Level(2, 'Around and around', this.jsonToTileBoard(level2.data)),
+            new Level(3, 'Around and around w/ new tile', this.jsonToTileBoard(level3.data))
         ]
     }
 

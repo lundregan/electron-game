@@ -97,13 +97,13 @@ export class TileBoard {
                 return new SingleDirection(false, x, y, 'toggle-up')
             case 'toggle-down':
                 return new SingleDirection(false, x, y, 'toggle-down')
-            case 'singleLineDirection-up':
+            case 'up':
                 return new SingleLineDirection(false, x, y, 'up')    
-            case 'singleLineDirection-down':
+            case 'down':
                 return new SingleLineDirection(false, x, y, 'down')  
-            case 'singleLineDirection-left':
+            case 'left':
                 return new SingleLineDirection(false, x, y, 'left')    
-            case 'singleLineDirection-right':
+            case 'right':
                 return new SingleLineDirection(false, x, y, 'right')
             case 'disabled':
                 return new Disabled(x, y)

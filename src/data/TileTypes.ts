@@ -10,10 +10,10 @@ export class TileTypes {
             'toggle-down',
             'disabled',
             'invisible',
-            'singleLineDirection-up',
-            'singleLineDirection-left',
-            'singleLineDirection-right',
-            'singleLineDirection-down'
+            'up',
+            'left',
+            'right',
+            'down'
         ]
     }
 
