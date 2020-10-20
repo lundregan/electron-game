@@ -16,7 +16,7 @@ export default new Vuex.Store({
     tileTypes: new TileTypes(),
     theme: new Theme(),
     levels: new Levels(),
-    level: new Level(0, 'testLevel', new TileBoard(10))
+    //level: new Level(0, 'testLevel', new TileBoard(10))
     
   },
 
@@ -24,7 +24,7 @@ export default new Vuex.Store({
   getters: {
     
     tileBoard: state => {
-      return state.level.getTileBoard()
+      return state.levels.current.getTileBoard()
     },
 
     moves: state => {
@@ -32,11 +32,11 @@ export default new Vuex.Store({
     },
 
     levelName: state => {
-      return state.level.getName()
+      return state.levels.current.getName()
     },
 
     level: state => {
-      return state.level
+      return state.levels.current
     },
 
     tileTypes: state => {
@@ -54,9 +54,9 @@ export default new Vuex.Store({
     isLevelComplete: state => {
       let win = true;
       
-      for(let i = 0; i < state.level.getTileBoard().board.length; i++){
-        for (let j = 0; j < state.level.getTileBoard().board[i].length; j++) {
-          const currentTile = state.level.getTileBoard().board[i][j]
+      for(let i = 0; i < state.levels.current.getTileBoard().board.length; i++){
+        for (let j = 0; j < state.levels.current.getTileBoard().board[i].length; j++) {
+          const currentTile = state.levels.current.getTileBoard().board[i][j]
           
           if(
             currentTile.type != 'disabled' &&
@@ -81,23 +81,23 @@ export default new Vuex.Store({
   mutations: {
     
     SET_TILEBOARD (state, tileBoard: TileBoard){
-      state.level.tileBoard = tileBoard
+      state.levels.current.tileBoard = tileBoard
     },
     
     LOAD_LEVEL (state, id){
-      state.level = state.levels.getLevel(id)
+      state.levels.current = state.levels.getLevel(id)
     },
     
     RESTART_LEVEL (state){
-      state.level.reset()
+      state.levels.current.reset()
     },
     
     TOGGLE_TILE (state, cords){
-      state.level.tileBoard.toggleTile(cords[0], cords[1])
+      state.levels.current.tileBoard.toggleTile(cords[0], cords[1])
     },
     
     SET_TILE_TYPE (state, payload){
-      state.level.tileBoard.setTileType(payload.x, payload.y, payload.type)
+      state.levels.current.tileBoard.setTileType(payload.x, payload.y, payload.type)
     },
     
     INCREMENT_MOVES (state, value){
@@ -113,11 +113,11 @@ export default new Vuex.Store({
     },
     
     SET_CURRENT_LEVEL_NAME (state, levelName){
-      state.level.setName(levelName)
+      state.levels.current.setName(levelName)
     },
     
     SET_CURRENT_LEVEL (state, level){
-      state.level = level
+      state.levels.current = level
     }
 
   },
@@ -141,7 +141,7 @@ export default new Vuex.Store({
     
     toggleTile (context, cords){
       if(
-        !this.state.level.tileBoard.outOfBounds(cords[0], cords[1])
+        !this.state.levels.current.tileBoard.outOfBounds(cords[0], cords[1])
       ){
         context.commit('TOGGLE_TILE', cords)
       }
