@@ -87,6 +87,10 @@ export default new Vuex.Store({
     LOAD_LEVEL (state, id){
       state.levels.current = state.levels.getLevel(id)
     },
+
+    CHANGE_LEVEL (state, id) {
+      state.levels.changeLevel(id)
+    },
     
     RESTART_LEVEL (state){
       state.levels.current.reset()
@@ -132,6 +136,10 @@ export default new Vuex.Store({
     loadLevel (context, id){
       context.commit('LOAD_LEVEL', id)
       context.commit('RESET_MOVES')
+    },
+
+    changeLevel (context, id) {
+      context.commit('CHANGE_LEVEL', id)
     },
     
     restartLevel (context){

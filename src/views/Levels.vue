@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         loadLevel: function (id) {
-            this.$store.dispatch('loadLevel', id)
+            this.$store.dispatch('changeLevel', id)
             .then(() => {
                 this.$router.push('Game')
             })
