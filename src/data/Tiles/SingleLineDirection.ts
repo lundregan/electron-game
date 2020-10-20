@@ -3,13 +3,18 @@ import Store from '@/store/index'
 import { Tile } from './Tile'
 
 export class SingleLineDirection extends Tile {
+    direction: string
+    
     constructor (
         active: boolean,
         x: number,
         y: number,
         direction: string
     ) {
-        super(direction, active, x, y)
+        super('SingleLineDirection', active, x, y)
+
+        this.direction = direction
+        this.icon = `arrow-collapse-${this.direction}`
     }
 
     toggle () {
@@ -29,7 +34,7 @@ export class SingleLineDirection extends Tile {
     private delayedDirectionToggle(i: number) {
         const cords = [this.x, this.y]
 
-        switch(this.type){
+        switch(this.direction){
             case 'right':
                 cords[1] += i
                 break

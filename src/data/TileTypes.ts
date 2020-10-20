@@ -4,16 +4,16 @@ export class TileTypes {
     constructor () {
         this.types = [
             'default',
-            'toggle-right',
-            'toggle-left',
-            'toggle-up',
-            'toggle-down',
             'disabled',
             'invisible',
-            'up',
-            'left',
-            'right',
-            'down'
+            'single-right',
+            'single-left',
+            'single-up',
+            'single-down',
+            'line-up',
+            'line-left',
+            'line-right',
+            'line-down'
         ]
     }
 
