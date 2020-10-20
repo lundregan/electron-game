@@ -13,7 +13,7 @@
                 @click='tileClicked(x-1, y-1)'
             >
                 <span v-if='tileBoard.board[x-1][y-1]'>
-                    <b-icon :icon='typeIcons[tileBoard.board[x-1][y-1].type]' size='is-large'></b-icon>
+                    <b-icon :icon='getTileIcon(x-1, y-1)' size='is-large'></b-icon>
                     <p class='tile-type-text' v-if='!playingGame'>{{tileBoard.board[x-1][y-1].type}}</p>
                 </span>
             </div>
@@ -132,6 +132,11 @@ export default {
         direction: 'reverse',
         easing: 'easeOutQuint'
       })
+    },
+    getTileIcon: function (x, y) {
+      const icon = this.tileBoard.board[x][y].getIcon()
+      
+      return icon != null ? icon : ''
     }
   }
 }

@@ -2,13 +2,18 @@ import { Tile } from './Tile'
 import Store from '@/store/index'
 
 export class SingleDirection extends Tile {
+    direction: string
+    
     constructor (
         active: boolean,
         x: number,
         y: number,
         direction: string
     ) {
-        super(direction, active, x, y)
+        super('SingleDirection', active, x, y)
+        
+        this.direction = direction
+        this.icon = `arrow-${this.direction}-thick`
     }
 
     toggle () {
@@ -22,17 +27,17 @@ export class SingleDirection extends Tile {
     private toggleDirection() {
         const cords = [this.x, this.y]
         
-        switch(this.type){
-            case 'toggle-right':
+        switch(this.direction){
+            case 'right':
                 cords[1] += 1
                 break
-            case 'toggle-left':
+            case 'left':
                 cords[1] -= 1
                 break
-            case 'toggle-up':
+            case 'up':
                 cords[0] -= 1
                 break
-            case 'toggle-down':
+            case 'down':
                 cords[0] += 1
                 break
             default:
@@ -44,4 +49,8 @@ export class SingleDirection extends Tile {
         }, 100)
         
     }
+
+    // getIcon() {
+    //     return `arrow-${this.direction}-thick`
+    // }
 }

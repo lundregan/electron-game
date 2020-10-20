@@ -3,6 +3,7 @@ export class Tile {
     active: boolean
     x: number
     y: number
+    icon: string | null
     
     constructor (
         type: string,
@@ -10,10 +11,12 @@ export class Tile {
         x: number,
         y: number
     ) {
-        this.type = type;
-        this.active = active;
-        this.x = x,
+        this.type = type
+        this.active = active
+        this.x = x
         this.y = y
+
+        this.icon = null
     }
 
     getType(){
@@ -40,5 +43,9 @@ export class Tile {
 
     toggle() {
         this.active = !this.active
+    }
+
+    getIcon() {
+        return this.icon
     }
 }

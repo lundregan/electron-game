@@ -90,13 +90,13 @@ export class TileBoard {
     getTileClassObject(type: string, x: number, y: number){
         switch(type){
             case 'toggle-left':
-                return new SingleDirection(false, x, y, 'toggle-left')
+                return new SingleDirection(false, x, y, 'left')
             case 'toggle-right':
-                return new SingleDirection(false, x, y, 'toggle-right')
+                return new SingleDirection(false, x, y, 'right')
             case 'toggle-up':
-                return new SingleDirection(false, x, y, 'toggle-up')
+                return new SingleDirection(false, x, y, 'up')
             case 'toggle-down':
-                return new SingleDirection(false, x, y, 'toggle-down')
+                return new SingleDirection(false, x, y, 'down')
             case 'up':
                 return new SingleLineDirection(false, x, y, 'up')    
             case 'down':
