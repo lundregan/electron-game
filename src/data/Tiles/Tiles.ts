@@ -1,4 +1,4 @@
-export class TileTypes {
+export class Tiles {
     types: Array<string>
     
     constructor () {
@@ -17,7 +17,7 @@ export class TileTypes {
         ]
     }
 
-    getTypes() {
+    getTypes () {
         return this.types
     }
 }

@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Vuex, { mapGetters } from 'vuex'
 
 import { TileBoard } from '../data/TileBoard'
-import { TileTypes } from '../data/TileTypes'
 import { Theme } from '../data/Theme'
 import { Level } from '../data/Level'
 import { Levels } from '../data/levels/levels'
+import { Tiles } from '@/data/Tiles/Tiles'
 
 Vue.use(Vuex)
 
@@ -13,7 +13,7 @@ export default new Vuex.Store({
   state: {
   
     moves: 0,
-    tileTypes: new TileTypes(),
+    tiles: new Tiles(),
     theme: new Theme(),
     levels: new Levels(),
     //level: new Level(0, 'testLevel', new TileBoard(10))
@@ -40,7 +40,7 @@ export default new Vuex.Store({
     },
 
     tileTypes: state => {
-      return state.tileTypes.getTypes()
+      return state.tiles.getTypes()
     },
 
     theme: state => {
