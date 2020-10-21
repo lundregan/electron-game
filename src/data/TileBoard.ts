@@ -58,7 +58,7 @@ export class TileBoard {
         return false
     }
     loadLevel(level: any) {
-        const loadedTileGrid = [];
+        const loadedTileGrid = []
   
         for(let i = 0; i < this.size; i++){
             const columnArray = [];
@@ -84,6 +84,36 @@ export class TileBoard {
     
         this.board = loadedTileGrid;
     }
+
+    loadJson(levelData: any){
+        const loadedTileGrid = []
+
+        for(let i = 0; i < levelData.size; i++){
+            const columnArray = [];
+    
+            for(let j = 0; j < levelData.size; j++){
+                const oldTile = levelData.board[i][j]
+
+                switch(oldTile.type){
+                    case 'SingleLineDirection':
+                        columnArray.push(new SingleLineDirection(false, oldTile.x, oldTile.y, oldTile.direction))
+                        break;
+                    case 'SingleDirection':
+                        columnArray.push(new SingleDirection(false, oldTile.x, oldTile.y, oldTile.direction))
+                        break;
+                    default:
+                        columnArray.push(new Tile('default', false, oldTile.x, oldTile.y))
+                        break;
+                }
+                
+            }
+            loadedTileGrid.push(columnArray);
+        }
+
+        console.log(loadedTileGrid)
+        this.board = loadedTileGrid;
+    }
+
     setTileType(x: number, y: number, type: string){
         this.board[x][y] = this.getTileClassObject(type, x, y)
     }
