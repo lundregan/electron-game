@@ -3,9 +3,9 @@ export class TileTypes {
     
     constructor () {
         this.types = [
-            'default',
-            'disabled',
-            'invisible',
+            'Default',
+            'Disabled',
+            'Invisible',
             'single-right',
             'single-left',
             'single-up',
