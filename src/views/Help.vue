@@ -55,7 +55,13 @@ data () {
             {
                 name: 'Single Direction',
                 icon: 'arrow-right-thick',
-                description: 'Toggles itself and a single tile in direction of arrow',
+                description: 'Toggles a single tile in direction',
+                unlocked: true
+            },
+            {
+                name: 'Single Line Direction',
+                icon: 'arrow-collapse-right',
+                description: 'Toggles all tiles in line',
                 unlocked: true
             },
             {
