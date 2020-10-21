@@ -6,15 +6,18 @@ import { SingleDirection } from './Tiles/SingleDirection'
 import { Disabled } from './Tiles/Disabled'
 import { Invisible } from './Tiles/Invisible'
 import { SingleLineDirection } from './Tiles/SingleLineDirection'
+import { Tiles } from './Tiles/Tiles'
 
 export class TileBoard {
     size: number
     board: Array<Array<Tile>>
+    tiles: Tiles
 
     constructor(size: number){
       this.size = size
       this.board = [[new Tile('default', true, 0, 0)]]
       this.generateBoard()
+      this.tiles = new Tiles()
     }
     generateBoard() {
       const generatedTileGrid = [];
@@ -94,20 +97,15 @@ export class TileBoard {
             for(let j = 0; j < levelData.size; j++){
                 const oldTile = levelData.board[i][j]
 
-                switch(oldTile.type){
-                    case 'Invisible':
-                        columnArray.push(new Invisible(oldTile.x, oldTile.y))
-                        break
-                    case 'SingleLineDirection':
-                        columnArray.push(new SingleLineDirection(false, oldTile.x, oldTile.y, oldTile.direction))
-                        break
-                    case 'SingleDirection':
-                        columnArray.push(new SingleDirection(false, oldTile.x, oldTile.y, oldTile.direction))
-                        break
-                    default:
-                        columnArray.push(new Tile('default', false, oldTile.x, oldTile.y))
-                        break
-                }
+                columnArray.push(
+                    this.tiles.newTile(
+                        oldTile.type,
+                        oldTile.x,
+                        oldTile.y,
+                        oldTile.active,
+                        oldTile.direction ? oldTile.direction : null
+                    )
+                )
                 
             }
             loadedTileGrid.push(columnArray);
