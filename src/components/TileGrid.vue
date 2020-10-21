@@ -7,8 +7,8 @@
                 :key='y.id'
                 :id='"tile-" + x + "-" + y'
                 :class='{
-                    "tile-disabled" : tileBoard.board[x-1][y-1].type === "disabled",
-                    "tile-invisible" : tileBoard.board[x-1][y-1].type === "invisible"
+                    "tile-disabled" : tileBoard.board[x-1][y-1].type === "Disabled",
+                    "tile-invisible" : tileBoard.board[x-1][y-1].type === "Invisible"
                 }'
                 @click='tileClicked(x-1, y-1)'
             >

@@ -5,7 +5,7 @@ export class Invisible extends Tile {
         x: number,
         y: number
     ) {
-        super('invisible', false, x, y)
+        super('Invisible', false, x, y)
     }
 
     toggle () {

@@ -95,15 +95,18 @@ export class TileBoard {
                 const oldTile = levelData.board[i][j]
 
                 switch(oldTile.type){
+                    case 'Invisible':
+                        columnArray.push(new Invisible(oldTile.x, oldTile.y))
+                        break
                     case 'SingleLineDirection':
                         columnArray.push(new SingleLineDirection(false, oldTile.x, oldTile.y, oldTile.direction))
-                        break;
+                        break
                     case 'SingleDirection':
                         columnArray.push(new SingleDirection(false, oldTile.x, oldTile.y, oldTile.direction))
-                        break;
+                        break
                     default:
                         columnArray.push(new Tile('default', false, oldTile.x, oldTile.y))
-                        break;
+                        break
                 }
                 
             }
@@ -135,9 +138,9 @@ export class TileBoard {
                 return new SingleLineDirection(false, x, y, 'up')    
             case 'line-down':
                 return new SingleLineDirection(false, x, y, 'down')  
-            case 'disabled':
+            case 'Disabled':
                 return new Disabled(x, y)
-            case 'invisible':
+            case 'Invisible':
                 return new Invisible(x, y)
             default:
                 return new Default(false, x, y)

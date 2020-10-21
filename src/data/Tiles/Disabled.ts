@@ -5,7 +5,7 @@ export class Disabled extends Tile {
         x: number,
         y: number
     ) {
-        super('disabled', false, x, y)
+        super('Disabled', false, x, y)
     }
 
     toggle() {

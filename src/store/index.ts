@@ -59,8 +59,8 @@ export default new Vuex.Store({
           const currentTile = state.levels.current.getTileBoard().board[i][j]
           
           if(
-            currentTile.type != 'disabled' &&
-            currentTile.type != 'invisible' &&
+            currentTile.type != 'Disabled' &&
+            currentTile.type != 'Invisible' &&
             currentTile.active === false
           ){
             win = false

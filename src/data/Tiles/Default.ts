@@ -6,6 +6,6 @@ export class Default extends Tile {
         x: number,
         y: number
     ) {
-        super('default', active, x, y)
+        super('Default', active, x, y)
     }
 }
