@@ -32,8 +32,6 @@ export class Levels {
 
     jsonToTileBoard (levelData: any) {
         const newTileBoard = new TileBoard(10)
-        //newTileBoard.loadLevel(levelData)
-        
         newTileBoard.loadJson(levelData)
 
         return newTileBoard

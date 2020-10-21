@@ -32,9 +32,6 @@ export class Tile {
     }
 
     click() {
-        console.log(this.type)
-        console.log(`${this.x} , ${this.y}`)
-    
         switch(this.type){
         default:
             this.active = !this.active

@@ -47,7 +47,6 @@ export default {
       backgroundColor: '#313131',
       borderRadius: ['0%', '50%'],
       easing: 'easeInOutQuad',
-      unsubscribe: null
     })
 
     // On unmount needs to be destroyed?
@@ -55,7 +54,6 @@ export default {
     this.unsubscribe = this.$store.subscribe((mutation, state) => {
       if( mutation.type == 'TOGGLE_TILE' ){
         this.tileToggleAnimation(mutation.payload)
-        this.rerenderInt =+ 1
       }
       
       if( mutation.type == 'RESTART_LEVEL' ){
@@ -70,24 +68,14 @@ export default {
   },
   data () {
     return {
-      rerenderInt: 1,
-      typeIcons: {
-        'default': 'none',
-        'toggle-up': 'arrow-up-thick',
-        'toggle-right': 'arrow-right-thick',
-        'toggle-down': 'arrow-down-thick',
-        'toggle-left': 'arrow-left-thick',
-        'right': 'arrow-collapse-right',
-        'left': 'arrow-collapse-left',
-        'down': 'arrow-collapse-down',
-        'up': 'arrow-collapse-up'
-      } 
+      rerenderInt: 0
     }
   },
   methods: {
     changeMode: function () {
       this.playingGame = !this.playingGame
     },
+
     tileClicked: function (x, y) { 
       if(this.playingGame){
         if(this.tileBoard.board[x][y].type != ('disabled' && 'invisible')){
@@ -101,13 +89,12 @@ export default {
           type: this.selectedTileType
         }
         this.$store.dispatch('changeTileType', payload)
-      }
-      
-      //rerender for editor      
-      if(!this.playingGame){
-        this.rerenderInt += 1
-      }
+        .then(
+          this.rerenderInt += 1
+        )
+      }      
     },
+
     tileToggleAnimation: function (payload) {
       const x = payload[0]
       const y = payload[1]
@@ -133,6 +120,7 @@ export default {
         easing: 'easeOutQuint'
       })
     },
+
     getTileIcon: function (x, y) {
       const icon = this.tileBoard.board[x][y].getIcon()
       

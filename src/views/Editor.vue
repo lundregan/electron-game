@@ -70,16 +70,14 @@ export default {
   },
   methods: {
     copyLevelDataToClipboard: function () {
-      console.log('going to copy')
-      
       this.$copyText(this.getLevelData()).then(e => {
         alert('Level Data Copied to Clipboard')
-        console.log(e)
       })
     },
+
     getLevelData: function () {
-      //const levelData = this.$store.getters.currentTileBoard
       const levelData = this.tileBoard
+
       return JSON.stringify(levelData)
     }
   }

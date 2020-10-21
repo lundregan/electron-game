@@ -54,7 +54,6 @@ export default {
   },
   methods: {
     restartLevel: function () {
-      console.log('restarting level')
       this.$store.dispatch('restartLevel')
     }
   }

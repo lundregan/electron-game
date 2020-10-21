@@ -18,8 +18,6 @@ export class SingleDirection extends Tile {
 
     toggle () {
         super.toggle()
-        
-        //Store.dispatch('toggleTile', [this.x+1, this.y+1])
 
         this.toggleDirection()
     }
@@ -49,8 +47,4 @@ export class SingleDirection extends Tile {
         }, 100)
         
     }
-
-    // getIcon() {
-    //     return `arrow-${this.direction}-thick`
-    // }
 }

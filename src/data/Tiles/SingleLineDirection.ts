@@ -20,8 +20,6 @@ export class SingleLineDirection extends Tile {
     toggle () {
         super.toggle()
         
-        //Store.dispatch('toggleTile', [this.x+1, this.y+1])
-
         this.toggleDirection()
     }
 
