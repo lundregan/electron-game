@@ -5,7 +5,9 @@
         <div class="column info-column">
           <div>
             <p>{{levelName}}</p>
-            <p v-if='isLevelComplete'>Complete</p>
+            <p v-if='isLevelComplete'>
+              Complete
+            </p>
             <p v-else>Incomplete</p>
           </div>
           <div>
@@ -39,6 +41,13 @@ export default {
   components: {
     TileGrid
   },
+  watch: {
+    isLevelComplete: function (complete) {
+      if(complete){
+        this.levelComplete()
+      }
+    }
+  },
   computed: {
     ...mapGetters([
       'isLevelComplete',
@@ -55,6 +64,20 @@ export default {
   methods: {
     restartLevel: function () {
       this.$store.dispatch('restartLevel')
+      this.$buefy.toast.open({
+        duration: 1500,
+        message: 'Level Restarted',
+        position: 'is-top',
+        type: 'is-info'
+      })
+    },
+    levelComplete: function () {
+      this.$buefy.toast.open({
+        duration: 1500,
+        message: 'Level Complete',
+        position: 'is-top',
+        type: 'is-success'
+      })
     }
   }
 }

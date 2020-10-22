@@ -71,7 +71,13 @@ export default {
   methods: {
     copyLevelDataToClipboard: function () {
       this.$copyText(this.getLevelData()).then(e => {
-        alert('Level Data Copied to Clipboard')
+        //alert('Level Data Copied to Clipboard')
+        this.$buefy.toast.open({
+          duration: 2000,
+          message: 'Level Data Copied to Clipboard',
+          position: 'is-top',
+          type: 'is-info'
+        })
       })
     },
 

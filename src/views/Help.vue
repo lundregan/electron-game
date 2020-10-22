@@ -49,7 +49,7 @@ data () {
             {
                 name: 'Default',
                 icon: null,
-                description: 'Toggles itself only',
+                description: 'Can only be toggled by other tiles',
                 unlocked: true
             },
             {
