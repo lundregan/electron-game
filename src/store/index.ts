@@ -169,6 +169,10 @@ export default new Vuex.Store({
     
     changeThemeColor (context, color){
       context.commit('SET_THEME_COLOR', color)
+    },
+
+    resetMoves (context) {
+      context.commit('RESET_MOVES')
     }
   },
 

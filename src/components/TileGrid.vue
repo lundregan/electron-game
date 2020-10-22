@@ -65,6 +65,8 @@ export default {
       // }
     })
 
+    this.$store.dispatch('resetMoves')
+
     this.rerenderInt += 1
   },
   beforeDestroy () {
