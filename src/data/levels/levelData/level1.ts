@@ -3,504 +3,505 @@ export const data = {
   "board": [
     [
       {
-        "type": "SingleDirection",
+        "type": "Invisible",
         "active": false,
         "x": 0,
         "y": 0,
-        "icon": "arrow-right-thick",
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 0,
+        "y": 1,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 0,
+        "y": 2,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 0,
+        "y": 3,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 0,
+        "y": 4,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 0,
+        "y": 5,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 0,
+        "y": 6,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 0,
+        "y": 7,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 0,
+        "y": 8,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 0,
+        "y": 9,
+        "icon": null
+      }
+    ],
+    [
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 1,
+        "y": 0,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 1,
+        "y": 1,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 1,
+        "y": 2,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 1,
+        "y": 3,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 1,
+        "y": 4,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 1,
+        "y": 5,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 1,
+        "y": 6,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 1,
+        "y": 7,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 1,
+        "y": 8,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 1,
+        "y": 9,
+        "icon": null
+      }
+    ],
+    [
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 2,
+        "y": 0,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 2,
+        "y": 1,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 2,
+        "y": 2,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 2,
+        "y": 3,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 2,
+        "y": 4,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 2,
+        "y": 5,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 2,
+        "y": 6,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 2,
+        "y": 7,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 2,
+        "y": 8,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 2,
+        "y": 9,
+        "icon": null
+      }
+    ],
+    [
+      {
+        "type": "SingleLineDirection",
+        "active": false,
+        "x": 3,
+        "y": 0,
+        "icon": "arrow-collapse-right",
         "direction": "right"
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 3,
+        "y": 1,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 3,
+        "y": 2,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 3,
+        "y": 3,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 3,
+        "y": 4,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 3,
+        "y": 5,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 3,
+        "y": 6,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 3,
+        "y": 7,
+        "icon": null
+      },
+      {
+        "type": "Disabled",
+        "active": false,
+        "x": 3,
+        "y": 8,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 3,
+        "y": 9,
+        "icon": null
+      }
+    ],
+    [
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 4,
+        "y": 0,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 4,
+        "y": 1,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 4,
+        "y": 2,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 4,
+        "y": 3,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 4,
+        "y": 4,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 4,
+        "y": 5,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 4,
+        "y": 6,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 4,
+        "y": 7,
+        "icon": null
+      },
+      {
+        "type": "Invisible",
+        "active": false,
+        "x": 4,
+        "y": 8,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 4,
+        "y": 9,
+        "icon": null
+      }
+    ],
+    [
+      {
+        "type": "SingleLineDirection",
+        "active": false,
+        "x": 5,
+        "y": 0,
+        "icon": "arrow-collapse-right",
+        "direction": "right"
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 5,
+        "y": 1,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 5,
+        "y": 2,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 5,
+        "y": 3,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 5,
+        "y": 4,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 5,
+        "y": 5,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 5,
+        "y": 6,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 5,
+        "y": 7,
+        "icon": null
+      },
+      {
+        "type": "Default",
+        "active": false,
+        "x": 5,
+        "y": 8,
+        "icon": null
       },
       {
         "type": "SingleLineDirection",
         "active": false,
-        "x": 0,
-        "y": 1,
-        "icon": "arrow-collapse-down",
-        "direction": "down"
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 0,
-        "y": 2,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 0,
-        "y": 3,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 0,
-        "y": 4,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 0,
-        "y": 5,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 0,
-        "y": 6,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 0,
-        "y": 7,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 0,
-        "y": 8,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 0,
+        "x": 5,
         "y": 9,
-        "icon": null
+        "icon": "arrow-collapse-up",
+        "direction": "up"
       }
     ],
     [
       {
-        "type": "default",
-        "active": false,
-        "x": 1,
-        "y": 0,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 1,
-        "y": 1,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 1,
-        "y": 2,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 1,
-        "y": 3,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 1,
-        "y": 4,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 1,
-        "y": 5,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 1,
-        "y": 6,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 1,
-        "y": 7,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 1,
-        "y": 8,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 1,
-        "y": 9,
-        "icon": null
-      }
-    ],
-    [
-      {
-        "type": "default",
-        "active": false,
-        "x": 2,
-        "y": 0,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 2,
-        "y": 1,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 2,
-        "y": 2,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 2,
-        "y": 3,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 2,
-        "y": 4,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 2,
-        "y": 5,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 2,
-        "y": 6,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 2,
-        "y": 7,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 2,
-        "y": 8,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 2,
-        "y": 9,
-        "icon": null
-      }
-    ],
-    [
-      {
-        "type": "default",
-        "active": false,
-        "x": 3,
-        "y": 0,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 3,
-        "y": 1,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 3,
-        "y": 2,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 3,
-        "y": 3,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 3,
-        "y": 4,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 3,
-        "y": 5,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 3,
-        "y": 6,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 3,
-        "y": 7,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 3,
-        "y": 8,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 3,
-        "y": 9,
-        "icon": null
-      }
-    ],
-    [
-      {
-        "type": "default",
-        "active": false,
-        "x": 4,
-        "y": 0,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 4,
-        "y": 1,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 4,
-        "y": 2,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 4,
-        "y": 3,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 4,
-        "y": 4,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 4,
-        "y": 5,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 4,
-        "y": 6,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 4,
-        "y": 7,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 4,
-        "y": 8,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 4,
-        "y": 9,
-        "icon": null
-      }
-    ],
-    [
-      {
-        "type": "default",
-        "active": false,
-        "x": 5,
-        "y": 0,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 5,
-        "y": 1,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 5,
-        "y": 2,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 5,
-        "y": 3,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 5,
-        "y": 4,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 5,
-        "y": 5,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 5,
-        "y": 6,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 5,
-        "y": 7,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 5,
-        "y": 8,
-        "icon": null
-      },
-      {
-        "type": "default",
-        "active": false,
-        "x": 5,
-        "y": 9,
-        "icon": null
-      }
-    ],
-    [
-      {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 6,
         "y": 0,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 6,
         "y": 1,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 6,
         "y": 2,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 6,
         "y": 3,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 6,
         "y": 4,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 6,
         "y": 5,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 6,
         "y": 6,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 6,
         "y": 7,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 6,
         "y": 8,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 6,
         "y": 9,
@@ -509,70 +510,70 @@ export const data = {
     ],
     [
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 7,
         "y": 0,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 7,
         "y": 1,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 7,
         "y": 2,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 7,
         "y": 3,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 7,
         "y": 4,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 7,
         "y": 5,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 7,
         "y": 6,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 7,
         "y": 7,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 7,
         "y": 8,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 7,
         "y": 9,
@@ -581,70 +582,70 @@ export const data = {
     ],
     [
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 8,
         "y": 0,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 8,
         "y": 1,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 8,
         "y": 2,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 8,
         "y": 3,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 8,
         "y": 4,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 8,
         "y": 5,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 8,
         "y": 6,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 8,
         "y": 7,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 8,
         "y": 8,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 8,
         "y": 9,
@@ -653,75 +654,91 @@ export const data = {
     ],
     [
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 9,
         "y": 0,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 9,
         "y": 1,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 9,
         "y": 2,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 9,
         "y": 3,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 9,
         "y": 4,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 9,
         "y": 5,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 9,
         "y": 6,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 9,
         "y": 7,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 9,
         "y": 8,
         "icon": null
       },
       {
-        "type": "default",
+        "type": "Invisible",
         "active": false,
         "x": 9,
         "y": 9,
         "icon": null
       }
     ]
-  ]
+  ],
+  "tiles": {
+    "types": [
+      "Default",
+      "Disabled",
+      "Invisible",
+      "single-right",
+      "single-left",
+      "single-up",
+      "single-down",
+      "line-up",
+      "line-left",
+      "line-right",
+      "line-down",
+      "Bomb"
+    ]
+  }
 }
