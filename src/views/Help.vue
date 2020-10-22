@@ -65,6 +65,12 @@ data () {
                 unlocked: true
             },
             {
+                name: 'Bomb',
+                icon: 'bomb',
+                description: 'blows up leaving a disabled tile',
+                unlocked: true
+            },
+            {
                 name: 'Single Direction Test',
                 icon: 'arrow-left-thick',
                 description: 'testing things',
