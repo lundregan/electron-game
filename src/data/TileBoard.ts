@@ -7,6 +7,7 @@ import { Disabled } from './Tiles/Disabled'
 import { Invisible } from './Tiles/Invisible'
 import { SingleLineDirection } from './Tiles/SingleLineDirection'
 import { Tiles } from './Tiles/Tiles'
+import { Bomb } from './Tiles/Bomb'
 
 export class TileBoard {
     size: number
@@ -140,6 +141,8 @@ export class TileBoard {
                 return new Disabled(x, y)
             case 'Invisible':
                 return new Invisible(x, y)
+            case 'Bomb':
+                return new Bomb(false, x, y)
             default:
                 return new Default(false, x, y)
         }

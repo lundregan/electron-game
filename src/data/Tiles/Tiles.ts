@@ -1,3 +1,4 @@
+import { Bomb } from './Bomb'
 import { Default } from './Default'
 import { Disabled } from './Disabled'
 import { Invisible } from './Invisible'
@@ -19,7 +20,8 @@ export class Tiles {
             'line-up',
             'line-left',
             'line-right',
-            'line-down'
+            'line-down',
+            'Bomb'
         ]
     }
 
@@ -43,6 +45,9 @@ export class Tiles {
             
             case 'Invisible':
                 return new Invisible(x, y)
+
+            case 'Bomb':
+                return new Bomb(active, x, y)
 
             case 'SingleDirection':
                 return new SingleDirection(active, x, y, direction)

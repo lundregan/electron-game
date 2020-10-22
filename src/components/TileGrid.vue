@@ -59,6 +59,10 @@ export default {
       if( mutation.type == 'RESTART_LEVEL' ){
         this.rerenderInt += 1
       }
+
+      // if(mutation.type == 'SET_TILE_TYPE'){
+      //   this.rerenderInt += 1
+      // }
     })
 
     this.rerenderInt += 1
@@ -78,7 +82,7 @@ export default {
 
     tileClicked: function (x, y) { 
       if(this.playingGame){
-        if(this.tileBoard.board[x][y].type != ('Disabled' && 'Invisible' && 'Default')){
+        if(this.tileBoard.board[x][y].type != ('Disabled' && 'Invisible' && 'Default' && 'Bomb')){
           this.$store.dispatch('tileClicked', 1)
           this.$store.dispatch('toggleTile', [x, y])
         }
