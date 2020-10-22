@@ -1,6 +1,7 @@
 import { SingleDirection } from './SingleDirection'
 import Store from '@/store/index'
 import { Tile } from './Tile'
+import store from '@/store/index'
 
 export class SingleLineDirection extends Tile {
     direction: string
@@ -25,7 +26,12 @@ export class SingleLineDirection extends Tile {
 
     private toggleDirection() {
         for(let i = 1; i < 10; i++){
-            this.delayedDirectionToggle(i)
+            if(
+                this.delayedDirectionToggle(i) == false
+            ){
+                console.log('breaking')
+                break
+            }
         }
     }
 
@@ -49,8 +55,23 @@ export class SingleLineDirection extends Tile {
                 break
         }
 
-        setTimeout(() => {
-            Store.dispatch('toggleTile', cords)
-        }, 100 * i);
+        const tileBoard = Store.getters.tileBoard
+        if(!tileBoard.outOfBounds(cords[0], cords[1])){
+            if(tileBoard.board[cords[0]][cords[1]].type == 'Disabled'){
+                
+                return false
+
+            }else{
+                console.log('toggling')
+                setTimeout(() => {
+                    Store.dispatch('toggleTile', cords)
+                }, 100 * i);
+
+                return true
+
+            }
+        }
+        
     }
+
 }
