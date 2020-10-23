@@ -30,7 +30,8 @@ export default {
   name: 'TileGrid',
   props: [
       'playingGame',
-      'selectedTileType'
+      'selectedTileType',
+      'selectedTileDirection'
   ],
   computed: {
     ...mapGetters([
@@ -92,7 +93,8 @@ export default {
         const payload = {
           x: x,
           y: y,
-          type: this.selectedTileType
+          type: this.selectedTileType,
+          direction: this.selectedTileDirection
         }
         this.$store.dispatch('changeTileType', payload)
         .then(

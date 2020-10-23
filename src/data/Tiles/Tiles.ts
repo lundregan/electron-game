@@ -5,23 +5,27 @@ import { Invisible } from './Invisible'
 import { SingleDirection } from './SingleDirection'
 import { SingleLineDirection } from './SingleLineDirection'
 
+export class TileType {
+    name: string
+    directions: Array<string>
+
+    constructor (name: string, directions: Array<string>) {
+        this.name = name,
+        this.directions = directions
+    }
+}
+
 export class Tiles {
-    types: Array<string>
+    types: Array<TileType>
     
     constructor () {
         this.types = [
-            'Default',
-            'Disabled',
-            'Invisible',
-            'single-right',
-            'single-left',
-            'single-up',
-            'single-down',
-            'line-up',
-            'line-left',
-            'line-right',
-            'line-down',
-            'Bomb'
+            new TileType('Default', null),
+            new TileType('Disabled', null),
+            new TileType('Invisible', null),
+            new TileType('SingleDirection', ['up', 'right', 'down', 'left']),
+            new TileType('SingleLineDirection', ['up', 'right', 'down', 'left']),
+            new TileType('Bomb', null),
         ]
     }
 

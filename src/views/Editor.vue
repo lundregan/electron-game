@@ -10,22 +10,36 @@
                 <p v-if='playing'>Edit Game</p>
                 <p v-else>Play Game</p>
             </b-button>
-            <b-button 
+            <div 
                 v-for='tileType in tileTypes'
                 :key='tileType.id'
                 class='px-4 mb-4'
                 :class='{"button-active" : selectedTileType == tileType}'
                 style='min-width: 100%'
-                @click='selectedTileType = tileType'
+                @click='selectedTileType = tileType.name'
                 :style="cssVars"
             >
-                {{tileType}}
-            </b-button>
+              
+              <div v-if='tileType.directions != null'>
+                <p>{{tileType.name}}</p>
+                <b-button 
+                  v-for='direction in tileType.directions'
+                  :key='direction.id'
+                  @click='selectedTileDirection = direction'
+                >
+                  <p>{{direction}}</p>
+                </b-button>
+              </div>
+              <div v-else>
+                <b-button @click='selectedTileType = tileType.name'>{{tileType.name}}</b-button>
+              </div>
+            </div>
         </div>
         <div class="column">
           <TileGrid
             :playingGame='playing'
             :selectedTileType='selectedTileType'
+            :selectedTileDirection='selectedTileDirection'
           ></TileGrid>
         </div>
         <div class="column">
@@ -62,6 +76,7 @@ export default {
     return {
         playing: false,
         selectedTileType: 'default',
+        selectedTileDirection: 'right',
         levelData: 'hello everybody!'
     }
   },

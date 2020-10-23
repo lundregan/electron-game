@@ -101,7 +101,7 @@ export default new Vuex.Store({
     },
     
     SET_TILE_TYPE (state, payload){
-      state.levels.current.tileBoard.setTileType(payload.x, payload.y, payload.type)
+      state.levels.current.tileBoard.setTileType(payload.x, payload.y, payload.type, payload.direction)
     },
     
     INCREMENT_MOVES (state, value){
