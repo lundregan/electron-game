@@ -36,8 +36,14 @@ export default {
   computed: {
     ...mapGetters([
       'tileBoard',
-      'activeColor'
+      'activeColor',
+      'animationQueue'
     ])
+  },
+  watch: {
+    animationQueue: function (animationQueue) {
+      this.playAnimation(animationQueue[0])
+    }
   },
   mounted () {
     anime({
@@ -133,6 +139,28 @@ export default {
       const icon = this.tileBoard.board[x][y].getIcon()
       
       return icon != null ? icon : ''
+    },
+
+    playAnimation: function (ani) {
+      console.log('playingAnimation')
+      
+      anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+      })
+      // .add({
+      //   targets: `#tile-${ani.x+1}-${ani.y+1}`,
+      //   scale: 0.9,
+      //   background: '#000000',
+      //   duration: 600,
+      //   easing: 'easeInOutQuint'
+      // })
+      
+      .add(
+        ani
+      )
+
+      this.$store.dispatch('animationPlayed')
     }
   }
 }

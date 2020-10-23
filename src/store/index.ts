@@ -17,7 +17,7 @@ export default new Vuex.Store({
     theme: new Theme(),
     levels: new Levels(),
     //level: new Level(0, 'testLevel', new TileBoard(10))
-    
+    animationQueue: []
   },
 
 
@@ -73,6 +73,10 @@ export default new Vuex.Store({
 
     levels: state => {
       return state.levels
+    },
+
+    animationQueue: state => {
+      return state.animationQueue
     }
 
   },
@@ -122,6 +126,14 @@ export default new Vuex.Store({
     
     SET_CURRENT_LEVEL (state, level){
       state.levels.current = level
+    },
+
+    ADD_ANIMATION (state, payload) {
+      state.animationQueue.push(payload)
+    },
+
+    REMOVE_FIRST_ANIMATION (state) {
+      state.animationQueue.shift()
     }
 
   },
@@ -173,6 +185,14 @@ export default new Vuex.Store({
 
     resetMoves (context) {
       context.commit('RESET_MOVES')
+    },
+
+    addAnimationToQueue (context, payload) {
+      context.commit('ADD_ANIMATION', payload)
+    },
+
+    animationPlayed (context) {
+      context.commit('REMOVE_FIRST_ANIMATION')
     }
   },
 
