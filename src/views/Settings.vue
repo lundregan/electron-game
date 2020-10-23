@@ -18,17 +18,6 @@
             >
             </div>
           </div>
-          <b-field label="Color Blind Mode">
-            <b-select :placeholder="colorBlindModes[0]" disabled>
-              <option
-                v-for="colorBlindMode in colorBlindModes"
-                :value="colorBlindMode.id"
-                :key="colorBlindMode.id"
-              >
-                {{ colorBlindMode }}
-              </option>
-            </b-select>
-          </b-field>
         </div>
         </div>
   </div>
