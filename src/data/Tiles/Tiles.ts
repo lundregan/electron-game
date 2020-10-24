@@ -3,6 +3,7 @@ import { Default } from './Default'
 import { Disabled } from './Disabled'
 import { Invisible } from './Invisible'
 import { SingleDirection } from './SingleDirection'
+import { SingleDirectionRotate } from './SingleDirectionRotate'
 import { SingleLineDirection } from './SingleLineDirection'
 
 export class TileType {
@@ -24,6 +25,7 @@ export class Tiles {
             new TileType('Disabled', null),
             new TileType('Invisible', null),
             new TileType('SingleDirection', ['up', 'right', 'down', 'left']),
+            new TileType('SingleDirectionRotate', ['up', 'right', 'down', 'left']),
             new TileType('SingleLineDirection', ['up', 'right', 'down', 'left']),
             new TileType('Bomb', null),
         ]
@@ -58,6 +60,9 @@ export class Tiles {
             
             case 'SingleLineDirection':
                 return new SingleLineDirection(active, x, y, direction)
+
+            case 'SingleDirectionRotate':
+                return new SingleDirectionRotate(active, x, y, direction)
 
             default:
                 return new Default(active, x, y)
