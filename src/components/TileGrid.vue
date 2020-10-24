@@ -95,6 +95,28 @@ export default {
       this.playingGame = !this.playingGame
     },
 
+    playTileToggleAnimation: function (x, y) {
+      const color = this.tileBoard.board[x][y].active ? this.activeColor : '#414141'
+          anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 750
+          })
+          .add({
+            targets: `#tile-${x+1}-${y+1}`,
+            scale: 1.2,
+            background: color,
+            duration: 300,
+            easing: 'easeInOutQuint'
+          })
+          .add({
+            targets: `#tile-${x+1}-${y+1}`,
+            scale: 1,
+            duration: 300,
+            direction: 'reverse',
+            easing: 'easeOutQuint'
+          })
+    },
+
     tileClicked: function (x, y) { 
       if(this.playingGame){
         if(this.tileBoard.board[x][y].type != ('Disabled' && 'Invisible' && 'Default' && 'Bomb')){
@@ -102,51 +124,18 @@ export default {
           this.$store.dispatch('toggleTile', [x, y])
         }
       }else{
-        if(this.selectedTileType == 'Active'){
+        if (this.selectedTileType == 'Active'){
           this.$store.dispatch('changeTileActive', {x: x, y: y, active: true})
 
-          const color = this.tileBoard.board[x][y].active ? this.activeColor : '#414141'
-          anime.timeline({
-            easing: 'easeOutExpo',
-            duration: 750
-          })
-          .add({
-            targets: `#tile-${x+1}-${y+1}`,
-            scale: 1.2,
-            background: color,
-            duration: 300,
-            easing: 'easeInOutQuint'
-          })
-          .add({
-            targets: `#tile-${x+1}-${y+1}`,
-            scale: 1,
-            duration: 300,
-            direction: 'reverse',
-            easing: 'easeOutQuint'
-          })
-        }else if(this.selectedTileType == 'Inactive') {
+          this.playTileToggleAnimation(x, y)
+        }
+        else if (this.selectedTileType == 'Inactive') {
+
           this.$store.dispatch('changeTileActive', {x: x, y: y, active: false})
 
-          const color = this.tileBoard.board[x][y].active ? this.activeColor : '#414141'
-          anime.timeline({
-            easing: 'easeOutExpo',
-            duration: 750
-          })
-          .add({
-            targets: `#tile-${x+1}-${y+1}`,
-            scale: 1.2,
-            background: color,
-            duration: 300,
-            easing: 'easeInOutQuint'
-          })
-          .add({
-            targets: `#tile-${x+1}-${y+1}`,
-            scale: 1,
-            duration: 300,
-            direction: 'reverse',
-            easing: 'easeOutQuint'
-          })
+          this.playTileToggleAnimation(x, y)
         }else{
+
           const payload = {
             x: x,
             y: y,
@@ -165,26 +154,7 @@ export default {
       const x = payload[0]
       const y = payload[1]
 
-      const color = this.tileBoard.board[x][y].active ? this.activeColor : '#414141'
-
-      anime.timeline({
-        easing: 'easeOutExpo',
-        duration: 750
-      })
-      .add({
-        targets: `#tile-${x+1}-${y+1}`,
-        scale: 1.2,
-        background: color,
-        duration: 300,
-        easing: 'easeInOutQuint'
-      })
-      .add({
-        targets: `#tile-${x+1}-${y+1}`,
-        scale: 1,
-        duration: 300,
-        direction: 'reverse',
-        easing: 'easeOutQuint'
-      })
+      this.playTileToggleAnimation(x, y)
     },
 
     getTileIcon: function (x, y) {
