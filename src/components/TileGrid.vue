@@ -1,6 +1,6 @@
 <template>
 <div class="tile-grid">
-    <div class="gtiles" style='display: flex; flex-direction: column;' :key='rerenderInt'>
+    <div class="gtiles" style='display: flex; flex-direction: column;' :key='rerenderInt' >
         <div class="rows" v-for='x in tileBoard.size' :key='x.id' style='display: flex;'>
             <div class='game-tile'
                 v-for='y in tileBoard.size'
@@ -11,6 +11,9 @@
                     "tile-invisible" : tileBoard.board[x-1][y-1].type === "Invisible"
                 }'
                 @click='tileClicked(x-1, y-1)'
+                @mouseenter="mouseOverTile(x-1, y-1)"
+                @mousedown="mouseDown = true"
+                @mouseup="mouseDown = false"
             >
                 <span v-if='tileBoard.board[x-1][y-1]'>
                     <b-icon
@@ -76,6 +79,7 @@ export default {
       // if(mutation.type == 'SET_TILE_TYPE'){
       //   this.rerenderInt += 1
       // }
+      
     })
 
     this.$store.dispatch('resetMoves')
@@ -87,7 +91,8 @@ export default {
   },
   data () {
     return {
-      rerenderInt: 0
+      rerenderInt: 0,
+      mouseDown: false
     }
   },
   methods: {
@@ -183,6 +188,23 @@ export default {
       )
 
       this.$store.dispatch('animationPlayed')
+    },
+
+    mouseOverTile: function (x, y) {
+      if(this.mouseDown && this.playingGame == false){
+        const payload = {
+            x: x,
+            y: y,
+            type: this.selectedTileType,
+            direction: this.selectedTileDirection
+        }
+        if(this.tileBoard.board[x][y].type != this.selectedTileType){
+          this.$store.dispatch('changeTileType', payload)
+          .then(
+            this.rerenderInt += 1
+          )
+        }
+      }
     }
   }
 }
