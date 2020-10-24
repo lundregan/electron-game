@@ -14,7 +14,9 @@
             >
                 <span v-if='tileBoard.board[x-1][y-1]'>
                     <b-icon
-                      v-if='tileBoard.board[x-1][y-1].type == "SingleDirectionRotate"'
+                      v-if='
+                        tileBoard.board[x-1][y-1].type == "SingleDirectionRotate" ||
+                        tileBoard.board[x-1][y-1].type == "SingleLineDirectionRotate"'
                       icon='rotate-left'
                     ></b-icon>
                     <b-icon :icon='getTileIcon(x-1, y-1)' size='is-large'></b-icon>
