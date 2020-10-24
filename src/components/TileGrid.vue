@@ -102,16 +102,62 @@ export default {
           this.$store.dispatch('toggleTile', [x, y])
         }
       }else{
-        const payload = {
-          x: x,
-          y: y,
-          type: this.selectedTileType,
-          direction: this.selectedTileDirection
+        if(this.selectedTileType == 'Active'){
+          this.$store.dispatch('changeTileActive', {x: x, y: y, active: true})
+
+          const color = this.tileBoard.board[x][y].active ? this.activeColor : '#414141'
+          anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 750
+          })
+          .add({
+            targets: `#tile-${x+1}-${y+1}`,
+            scale: 1.2,
+            background: color,
+            duration: 300,
+            easing: 'easeInOutQuint'
+          })
+          .add({
+            targets: `#tile-${x+1}-${y+1}`,
+            scale: 1,
+            duration: 300,
+            direction: 'reverse',
+            easing: 'easeOutQuint'
+          })
+        }else if(this.selectedTileType == 'Inactive') {
+          this.$store.dispatch('changeTileActive', {x: x, y: y, active: false})
+
+          const color = this.tileBoard.board[x][y].active ? this.activeColor : '#414141'
+          anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 750
+          })
+          .add({
+            targets: `#tile-${x+1}-${y+1}`,
+            scale: 1.2,
+            background: color,
+            duration: 300,
+            easing: 'easeInOutQuint'
+          })
+          .add({
+            targets: `#tile-${x+1}-${y+1}`,
+            scale: 1,
+            duration: 300,
+            direction: 'reverse',
+            easing: 'easeOutQuint'
+          })
+        }else{
+          const payload = {
+            x: x,
+            y: y,
+            type: this.selectedTileType,
+            direction: this.selectedTileDirection
+          }
+          this.$store.dispatch('changeTileType', payload)
+          .then(
+            this.rerenderInt += 1
+          )
         }
-        this.$store.dispatch('changeTileType', payload)
-        .then(
-          this.rerenderInt += 1
-        )
       }      
     },
 

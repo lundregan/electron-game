@@ -46,6 +46,9 @@
           <b-button
             @click='copyLevelDataToClipboard()'
           >Copy Level Data to Clipboard</b-button>
+
+          <b-button class='my-6 mx-1' @click='selectedTileType = "Active"'>Set Active</b-button>
+          <b-button class='my-6 mx-1' @click='selectedTileType = "Inactive"'>Set Inactive</b-button>
         </div>
     </div>
   </section>

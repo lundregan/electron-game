@@ -134,6 +134,10 @@ export default new Vuex.Store({
 
     REMOVE_FIRST_ANIMATION (state) {
       state.animationQueue.shift()
+    },
+
+    SET_TILE_ACTIVE(state, payload){
+      state.levels.current.getTileBoard().board[payload.x][payload.y].setActive(payload.active)
     }
 
   },
@@ -193,6 +197,10 @@ export default new Vuex.Store({
 
     animationPlayed (context) {
       context.commit('REMOVE_FIRST_ANIMATION')
+    },
+
+    changeTileActive(context, payload) {
+      context.commit('SET_TILE_ACTIVE', payload)
     }
   },
 
