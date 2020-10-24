@@ -4,7 +4,7 @@
 
     <div class="columns is-vcentered menu">
         <div class="column">
-            <p class="ani menu-title mb-0 is-size-1" :style='`color: ${activeColor};`'>Tiles</p>
+            <p class="ani menu-title mb-0 is-size-1" :style='`color: ${activeColor};`'>QUAD-TILES</p>
             <p class="sub-title ani mb-6" >{{currentMenuQuote}}</p>
             <b-field class='ani'>
                 <router-link to='Game'>
