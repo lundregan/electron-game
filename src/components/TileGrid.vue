@@ -13,6 +13,10 @@
                 @click='tileClicked(x-1, y-1)'
             >
                 <span v-if='tileBoard.board[x-1][y-1]'>
+                    <b-icon
+                      v-if='tileBoard.board[x-1][y-1].type == "SingleDirectionRotate"'
+                      icon='rotate-left'
+                    ></b-icon>
                     <b-icon :icon='getTileIcon(x-1, y-1)' size='is-large'></b-icon>
                     <p class='tile-type-text' v-if='!playingGame'>{{tileBoard.board[x-1][y-1].type}}</p>
                 </span>

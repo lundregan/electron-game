@@ -13,7 +13,7 @@ export class SingleDirectionRotate extends Tile {
         y: number,
         direction: string
     ) {
-        super('SingleDirection', active, x, y)
+        super('SingleDirectionRotate', active, x, y)
         
         this.direction = direction
         this.icon = `arrow-${this.direction}-thick`
