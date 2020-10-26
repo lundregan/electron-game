@@ -75,16 +75,28 @@ export default {
       if( mutation.type == 'RESTART_LEVEL' ){
         this.rerenderInt += 1
       }
-
-      // if(mutation.type == 'SET_TILE_TYPE'){
-      //   this.rerenderInt += 1
-      // }
       
     })
 
     this.$store.dispatch('resetMoves')
 
-    this.rerenderInt += 1
+    //this.rerenderInt += 1
+
+    for(let i = 0; i < this.tileBoard.board.length; i++){
+      for(let j = 0; j < this.tileBoard.board.length; j++){
+        console.log(this.tileBoard.board[i][j].active)
+        
+        // Not sure why this doesnt work without a delay?!
+        if(this.tileBoard.board[i][j].active){
+          setTimeout(() => {
+            this.playTileToggleAnimation(i, j)  
+          }, 1000);
+          
+        }
+      }
+    }
+
+    //this.rerenderInt += 1
   },
   beforeDestroy () {
     this.unsubscribe()
@@ -101,7 +113,10 @@ export default {
     },
 
     playTileToggleAnimation: function (x, y) {
+      console.log('playing animation')
+      console.log(x, y)
       const color = this.tileBoard.board[x][y].active ? this.activeColor : '#414141'
+      console.log(color)
           anime.timeline({
             easing: 'easeOutExpo',
             duration: 750
@@ -152,7 +167,7 @@ export default {
             this.rerenderInt += 1
           )
         }
-      }      
+      }   
     },
 
     tileToggleAnimation: function (payload) {
@@ -175,13 +190,6 @@ export default {
         easing: 'easeOutExpo',
         duration: 750
       })
-      // .add({
-      //   targets: `#tile-${ani.x+1}-${ani.y+1}`,
-      //   scale: 0.9,
-      //   background: '#000000',
-      //   duration: 600,
-      //   easing: 'easeInOutQuint'
-      // })
       
       .add(
         ani
