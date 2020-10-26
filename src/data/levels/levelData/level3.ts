@@ -147,21 +147,21 @@ export const data = {
     ],
     [
       {
-        "type": "Invisible",
+        "type": "Default",
         "active": false,
         "x": 2,
         "y": 0,
         "icon": null
       },
       {
-        "type": "Invisible",
+        "type": "Default",
         "active": false,
         "x": 2,
         "y": 1,
         "icon": null
       },
       {
-        "type": "Invisible",
+        "type": "Default",
         "active": false,
         "x": 2,
         "y": 2,
@@ -292,70 +292,70 @@ export const data = {
     [
       {
         "type": "Default",
-        "active": false,
+        "active": true,
         "x": 4,
         "y": 0,
         "icon": null
       },
       {
         "type": "Default",
-        "active": false,
+        "active": true,
         "x": 4,
         "y": 1,
         "icon": null
       },
       {
         "type": "Default",
-        "active": false,
+        "active": true,
         "x": 4,
         "y": 2,
         "icon": null
       },
       {
         "type": "Default",
-        "active": false,
+        "active": true,
         "x": 4,
         "y": 3,
         "icon": null
       },
       {
         "type": "Default",
-        "active": false,
+        "active": true,
         "x": 4,
         "y": 4,
         "icon": null
       },
       {
         "type": "Default",
-        "active": false,
+        "active": true,
         "x": 4,
         "y": 5,
         "icon": null
       },
       {
         "type": "Default",
-        "active": false,
+        "active": true,
         "x": 4,
         "y": 6,
         "icon": null
       },
       {
         "type": "Default",
-        "active": false,
+        "active": true,
         "x": 4,
         "y": 7,
         "icon": null
       },
       {
         "type": "Default",
-        "active": false,
+        "active": true,
         "x": 4,
         "y": 8,
         "icon": null
       },
       {
         "type": "Default",
-        "active": false,
+        "active": true,
         "x": 4,
         "y": 9,
         "icon": null
@@ -724,18 +724,58 @@ export const data = {
   ],
   "tiles": {
     "types": [
-      "Default",
-      "Disabled",
-      "Invisible",
-      "single-right",
-      "single-left",
-      "single-up",
-      "single-down",
-      "line-up",
-      "line-left",
-      "line-right",
-      "line-down",
-      "Bomb"
+      {
+        "name": "Default",
+        "directions": null
+      },
+      {
+        "name": "Disabled",
+        "directions": null
+      },
+      {
+        "name": "Invisible",
+        "directions": null
+      },
+      {
+        "name": "SingleDirection",
+        "directions": [
+          "up",
+          "right",
+          "down",
+          "left"
+        ]
+      },
+      {
+        "name": "SingleDirectionRotate",
+        "directions": [
+          "up",
+          "right",
+          "down",
+          "left"
+        ]
+      },
+      {
+        "name": "SingleLineDirection",
+        "directions": [
+          "up",
+          "right",
+          "down",
+          "left"
+        ]
+      },
+      {
+        "name": "SingleLineDirectionRotate",
+        "directions": [
+          "up",
+          "right",
+          "down",
+          "left"
+        ]
+      },
+      {
+        "name": "Bomb",
+        "directions": null
+      }
     ]
   }
 }
