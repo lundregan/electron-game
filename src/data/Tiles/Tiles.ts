@@ -25,11 +25,11 @@ export class Tiles {
             new TileType('Default', null),
             new TileType('Disabled', null),
             new TileType('Invisible', null),
+            new TileType('Bomb', null),
             new TileType('SingleDirection', ['up', 'right', 'down', 'left']),
             new TileType('SingleDirectionRotate', ['up', 'right', 'down', 'left']),
             new TileType('SingleLineDirection', ['up', 'right', 'down', 'left']),
             new TileType('SingleLineDirectionRotate', ['up', 'right', 'down', 'left']),
-            new TileType('Bomb', null),
         ]
     }
 
