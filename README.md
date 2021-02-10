@@ -14,6 +14,9 @@ Development Halted due to the *Fun* factor not being met.
 
 ### Project setup
 
+Requirments;
+- NPM / NODEJS
+
 ```
 git clone https://github.com/lundregan/electron-game.git
 npm install
